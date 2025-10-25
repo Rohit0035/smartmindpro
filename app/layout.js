@@ -1,5 +1,8 @@
 import "../assets/styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import Footer from "../components/Footer";
 import AOSWrapper from "../components/AOSWrapper";
 import MainNavbar from "../components/MainNavbar";

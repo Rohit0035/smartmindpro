@@ -1,13 +1,14 @@
 /* ===== Top Header ===== */
 .top-header {
   font-size: 0.9rem;
+  background-color: var(--primary-color);
 }
 
 /* ===== Navbar ===== */
 .smart-navbar {
   position: sticky;
   top: 0;
-  z-index: 1030;
+  /* z-index: 1030; */
   border-bottom: 1px solid #eee;
   transition: all 0.3s ease;
 }
@@ -114,6 +115,9 @@
   transform: rotate(180deg);
 }
 
+.nav-link{
+  padding: 5px 20px !important;
+}
 /* ===== Responsive ===== */
 @media (max-width: 992px) {
   .smart-megamenu {

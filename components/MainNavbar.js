@@ -8,6 +8,10 @@ import {
   Nav,
   NavItem,
   Collapse,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 } from "reactstrap";
 import {
   FaChevronDown,
@@ -15,9 +19,11 @@ import {
   FaArrowLeft,
   FaTimes,
   FaChevronRight,
+FaMapMarkerAlt  
 } from "react-icons/fa";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/styles/navbar.css";
+
+import menuData from "./menuData"; // ✅ Import dynamic menu data
 
 export default function MainNavbar() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -41,104 +47,106 @@ export default function MainNavbar() {
     setExpandedChild(expandedChild === child ? null : child);
   };
 
+  const activeMenuData = menuData.find((m) => m.name === activeSubmenu);
+
   return (
     <>
       {/* === Top Header === */}
-      <div className="top-header py-1 bg-light border-bottom">
-        <div className="container-fluid d-flex justify-content-end align-items-center small text-muted gap-3">
-          <Link href="#" className="text-dark text-decoration-none">
-            Login
-          </Link>
-          <button className="btn btn-danger btn-sm rounded-pill px-3">
-            Post Property{" "}
-            <span className="badge bg-warning text-dark ms-1">FREE</span>
-          </button>
+      <div className="top-header py-1 border-bottom">
+        <div className="container small text-muted">
+          <div className="row">
+            <div className="col-6">
+              <div className="left-grid">
+                <NavbarBrand href="/" className="fw-bold text-white fs-3">
+                  SmartMind
+                </NavbarBrand>
+                <span className="">
+                  <a href="#" className="text-white ms-4" >
+                     <FaMapMarkerAlt size={16} style={{marginTop:'-10px'}} />
+                  </a>
+                </span>
+              </div>
+            </div>
+            <div className="col-6">
+              <div className="right-grid d-flex justify-content-end">
+                <UncontrolledDropdown>
+                  <DropdownToggle caret color="#000" className="text-white me-2">
+                    Login
+                  </DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem>Profile</DropdownItem>
+                    <DropdownItem>Settings</DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>Log out</DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+                <button className="btn btn-light btn-sm sm-2 px-4 fw-bold d-none d-sm-block" style={{ borderRadius: '100px' }}>
+                  Post Property
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* === Main Navbar === */}
       <Navbar expand="lg" className="smart-navbar bg-white shadow-sm py-2">
-        <div className="container-fluid d-flex align-items-center justify-content-between">
-          <div className="d-flex align-items-center">
-            {/* Mobile toggle (for tablet + mobile) */}
-            <button
-              className="btn btn-link text-dark d-lg-none fs-4 me-2"
-              onClick={toggleSidebar}
-            >
-              <FaBars />
-            </button>
+        <div className="container">
+          <div className="d-flex container align-items-center justify-content-between px-0">
+            {/* === Mobile Toggle === */}
+            <div className="d-flex align-items-center">
+              <button
+                className="btn btn-link text-dark d-lg-none fs-4 me-2"
+                onClick={toggleSidebar}
+              >
+                <FaBars />
+              </button>
+            </div>
 
-            {/* Brand */}
-            <NavbarBrand href="/" className="fw-bold text-danger fs-4">
-              magic<span className="text-dark">bricks</span>
-            </NavbarBrand>
+            {/* === Desktop Menu === */}
+            <Collapse isOpen={true} navbar className="d-none d-lg-flex">
+              <Nav className="align-items-center" navbar>
+                {menuData.map((menu) => (
+                  <NavItem key={menu.name} className="smart-megamenu-parent">
+                    <Link
+                      href={menu.path || "#"}
+                      className="nav-link text-dark fw-semibold"
+                    >
+                      {menu.name}
+                      {menu.submenu && <FaChevronDown className="small ms-1" />}
+                    </Link>
+
+                    {/* === Mega Menu === */}
+                    {menu.submenu && (
+                      <div className="smart-megamenu shadow-sm p-4 bg-white">
+                        <div className="row g-4">
+                          {menu.submenu.map((sub, i) => (
+                            <div key={i} className="col">
+                              <h6 className="fw-bold text-muted mb-2">
+                                {sub.title}
+                              </h6>
+                              <ul className="list-unstyled small">
+                                {sub.items.map((item, j) => (
+                                  <li key={j}>
+                                    <Link
+                                      href={item.path || "#"}
+                                      className="text-decoration-none text-dark"
+                                    >
+                                      {item.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </NavItem>
+                ))}
+              </Nav>
+            </Collapse>
           </div>
-
-          {/* Desktop Menu */}
-          <Collapse isOpen={true} navbar className="d-none d-lg-flex">
-            <Nav className="ms-auto align-items-center" navbar>
-              <NavItem className="smart-megamenu-parent">
-                <Link href="#" className="nav-link text-dark fw-semibold">
-                  Buy <FaChevronDown className="small ms-1" />
-                </Link>
-                <div className="smart-megamenu shadow-sm p-4 bg-white">
-                  <div className="row g-4">
-                    <div className="col-md-3">
-                      <h6 className="fw-bold text-muted mb-2">
-                        Popular Choices
-                      </h6>
-                      <ul className="list-unstyled small">
-                        <li>Ready to Move</li>
-                        <li>Owner Properties</li>
-                        <li>Budget Homes</li>
-                        <li>Premium Homes</li>
-                        <li>
-                          <span className="badge bg-danger">magic</span> Homes
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="col-md-3">
-                      <h6 className="fw-bold text-muted mb-2">Property Type</h6>
-                      <ul className="list-unstyled small">
-                        <li>Flats</li>
-                        <li>Villas</li>
-                        <li>Plots</li>
-                      </ul>
-                    </div>
-                    <div className="col-md-3">
-                      <h6 className="fw-bold text-muted mb-2">Budget Range</h6>
-                      <ul className="list-unstyled small">
-                        <li>Under ₹50L</li>
-                        <li>₹50L–₹1Cr</li>
-                        <li>₹1Cr–₹1.5Cr</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </NavItem>
-
-              <NavItem>
-                <Link href="#" className="nav-link text-dark fw-semibold">
-                  Rent
-                </Link>
-              </NavItem>
-              <NavItem>
-                <Link href="#" className="nav-link text-dark fw-semibold">
-                  Sell
-                </Link>
-              </NavItem>
-              <NavItem>
-                <Link href="#" className="nav-link text-dark fw-semibold">
-                  Home Loans
-                </Link>
-              </NavItem>
-              <NavItem>
-                <Link href="#" className="nav-link text-dark fw-semibold">
-                  Home Interiors
-                </Link>
-              </NavItem>
-            </Nav>
-          </Collapse>
         </div>
       </Navbar>
 
@@ -162,86 +170,64 @@ export default function MainNavbar() {
           )}
         </div>
 
-        {/* Parent Menu */}
+        {/* === Parent Menu === */}
         <div className={`sidebar-body ${activeSubmenu ? "hide" : ""}`}>
           <ul className="list-unstyled mb-0">
-            <li onClick={() => openSubmenu("Buy")}>
-              Buy <FaChevronRight className="float-end mt-1" />
-            </li>
-            <li>Rent</li>
-            <li>Sell</li>
-            <li>Home Loans</li>
-            <li>Home Interiors</li>
-            <li>MB Advice</li>
+            {menuData.map((menu) => (
+              <li
+                key={menu.name}
+                onClick={() =>
+                  menu.submenu
+                    ? openSubmenu(menu.name)
+                    : (window.location.href = menu.path)
+                }
+              >
+                {menu.name}
+                {menu.submenu && <FaChevronRight className="float-end mt-1" />}
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Submenu Panel */}
+        {/* === Submenu Body === */}
         <div className={`submenu-body ${activeSubmenu ? "show" : ""}`}>
-          <ul className="list-unstyled mb-0 p-0">
-            <li>
-              <div
-                className="d-flex justify-content-between align-items-center px-3 py-2"
-                onClick={() => toggleChild("PopularChoices")}
-              >
-                <span>Popular Choices</span>
-                <FaChevronDown
-                  className={`small transition ${expandedChild === "PopularChoices" ? "rotate" : ""
-                    }`}
-                />
-              </div>
-              <Collapse isOpen={expandedChild === "PopularChoices"}>
-                <ul className="list-unstyled ms-3 mt-2 small">
-                  <li>Ready to Move</li>
-                  <li>Owner Properties</li>
-                  <li>Budget Homes</li>
-                </ul>
-              </Collapse>
-            </li>
+          {activeMenuData && (
+            <ul className="list-unstyled mb-0 p-0">
+              {activeMenuData.submenu?.map((sub) => (
+                <li key={sub.title}>
+                  <div
+                    className="d-flex justify-content-between align-items-center px-3 py-2"
+                    onClick={() => toggleChild(sub.title)}
+                  >
+                    <span>{sub.title}</span>
+                    <FaChevronDown
+                      className={`small transition ${expandedChild === sub.title ? "rotate" : ""
+                        }`}
+                    />
+                  </div>
 
-            <li>
-              <div
-                className="d-flex justify-content-between align-items-center px-3 py-2"
-                onClick={() => toggleChild("PropertyType")}
-              >
-                <span>Property Type</span>
-                <FaChevronDown
-                  className={`small transition ${expandedChild === "PropertyType" ? "rotate" : ""
-                    }`}
-                />
-              </div>
-              <Collapse isOpen={expandedChild === "PropertyType"}>
-                <ul className="list-unstyled ms-3 mt-2 small">
-                  <li>Flats</li>
-                  <li>Villas</li>
-                  <li>Plots</li>
-                </ul>
-              </Collapse>
-            </li>
-
-            <li>
-              <div
-                className="d-flex justify-content-between align-items-center px-3 py-2"
-                onClick={() => toggleChild("Budget")}
-              >
-                <span>Budget</span>
-                <FaChevronDown
-                  className={`small transition ${expandedChild === "Budget" ? "rotate" : ""
-                    }`}
-                />
-              </div>
-              <Collapse isOpen={expandedChild === "Budget"}>
-                <ul className="list-unstyled ms-3 mt-2 small">
-                  <li>Under ₹50L</li>
-                  <li>₹50L–₹1Cr</li>
-                  <li>₹1Cr–₹1.5Cr</li>
-                </ul>
-              </Collapse>
-            </li>
-          </ul>
+                  <Collapse isOpen={expandedChild === sub.title}>
+                    <ul className="list-unstyled ms-3 mt-2 small">
+                      {sub.items.map((item, i) => (
+                        <li key={i}>
+                          <Link
+                            href={item.path || "#"}
+                            className="text-decoration-none text-dark"
+                          >
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </Collapse>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
 
+      {/* === Overlay === */}
       <div
         className={`smart-sidebar-overlay ${showSidebar ? "show" : ""}`}
         onClick={toggleSidebar}

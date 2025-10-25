@@ -4,7 +4,7 @@
   Root variables for colors and fonts
 ---------------------------------------*/
 :root {
-  --primary-color: #007bff;       
+  --primary-color: #6e2e36;       
   --secondary-color: #ff6a00;    
   --success-color: #28a745;
   --danger-color: #dc3545;
@@ -75,7 +75,7 @@ p {
 ---------------------------------------*/
 a {
   color: var(--primary-color);
-  text-decoration: none;
+  text-decoration: none !important;
   transition: all 0.3s ease;
 
   &:hover {
@@ -146,6 +146,68 @@ img {
 .bg-primary { background-color: var(--primary-color); color: #fff; }
 .bg-secondary { background-color: var(--secondary-color); color: #fff; }
 
+/* conatiner */
+.container{
+  max-width: 1240px !important;
+}
+
+.bg-primary{
+  background-color: var(--primary-color) !important;
+}
+.btn-danger{
+    background-color: var(--primary-color) !important;
+}
+.text-st {
+  color: var(--primary-color) !important;
+}
+
+.bg-danger{
+   background-color: var(--primary-color) !important;
+}
+
+/* swiper css */
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  background-color: #fff; 
+  color: #000; 
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+  background-color: #6e2e36;
+  transform: translateY(-50%) scale(1.1);
+  color: #fff;
+}
+
+.custom-prev {
+  left: 15px; 
+}
+
+.custom-next {
+  right: 15px; 
+}
+
+/* text-css */
+.st-txt-o{
+  white-space: nowrap; 
+  width: 100%; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
 /*--------------------------------------
   Responsive Typography
 ---------------------------------------*/
