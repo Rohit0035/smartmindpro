@@ -13,6 +13,8 @@ const selectStyles = {
     backgroundColor: "transparent",
     fontSize: "14px",
     cursor: "pointer",
+    minWidth: '100%'
+
   }),
   dropdownIndicator: (provided) => ({
     ...provided,
@@ -23,6 +25,8 @@ const selectStyles = {
     backgroundColor: state.isSelected ? "#fcebea" : "white",
     color: "#333",
     "&:hover": { backgroundColor: "#f8d7da" },
+    fontSize: "12px",
+    TextAlign:'left'
   }),
 };
 
@@ -53,11 +57,11 @@ export default function HeroSection() {
   const tabs = [
     "Buy",
     "Rent",
-    "magicHomes",
-    "PG",
+    // "magicHomes",
+    // "PG",
     "Plot",
-    "Commercial",
-    "Post Free Property Ad",
+    // "Commercial",
+    // "Post Free Property Ad",
   ];
 
   return (
@@ -75,9 +79,8 @@ export default function HeroSection() {
             <Button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`btn bg-transparent border-0 position-relative fw-medium ${
-                activeTab === tab ? "text-danger" : "text-secondary"
-              }`}
+              className={`btn bg-transparent border-0 position-relative fw-medium ${activeTab === tab ? "text-danger" : "text-secondary"
+                }`}
             >
               {tab}
               {activeTab === tab && (
@@ -92,9 +95,9 @@ export default function HeroSection() {
 
         {/* Search Bar */}
         <div className="border rounded-5 shadow-sm p-2 bg-white mx-auto" style={{ maxWidth: "850px" }}>
-          <Row className="align-items-center g-0">
+          <Row className="align-items-start g-0">
             {/* Location */}
-            <Col lg="4" md="4" sm="12" className="border-end d-flex align-items-center px-3 py-2">
+            <Col lg="3" md="4" sm="12" className="border-end d-flex align-items-center px-3 py-2">
               <FaMapMarkerAlt className="text-danger me-2" />
               <Select
                 options={cityOptions}
@@ -102,7 +105,7 @@ export default function HeroSection() {
                 styles={selectStyles}
                 className="flex-grow-1"
               />
-              <small className="text-muted ms-2 d-none d-md-inline">Add more...</small>
+              {/* <small className="text-muted ms-2 d-none d-md-inline">Add more...</small> */}
             </Col>
 
             {/* Property Type */}
@@ -123,12 +126,12 @@ export default function HeroSection() {
                 options={budgetOptions}
                 placeholder="Budget"
                 styles={selectStyles}
-                className="flex-grow-1"
+                className="flex-grow-1 border-0"
               />
             </Col>
 
             {/* Search Button */}
-            <Col lg="2" md="12" sm="12" className="text-center text-md-end px-3 py-2">
+            <Col lg="3" md="12" sm="12" className="text-center text-md-end px-3 py-2">
               <Button color="danger" className="rounded-pill px-4 w-100 d-flex justify-content-center align-items-center">
                 <FaSearch className="me-2" /> Search
               </Button>

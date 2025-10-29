@@ -35,30 +35,6 @@ const menuData = [
     ],
   },
   {
-    name: "test",
-    path: "/buy",
-    submenu: [
-      {
-        title: "Popular Choices",
-        items: [
-          { label: "Ready to Move", path: "/buy/ready-to-move" },
-          { label: "Owner Properties", path: "/buy/owner-properties" },
-          { label: "Budget Homes", path: "/buy/budget-homes" },
-          { label: "Premium Homes", path: "/buy/premium-homes" },
-          { label: "Magic Homes", path: "/buy/magic-homes" },
-        ],
-      },
-      {
-        title: "Property Type",
-        items: [
-          { label: "Flats", path: "/buy/flats" },
-          { label: "Villas", path: "/buy/villas" },
-          { label: "Plots", path: "/buy/plots" },
-        ],
-      },
-    ],
-  },
-  {
     name: "Rent",
     path: "/rent",
   },

@@ -3,6 +3,8 @@ import React from "react";
 import { Container, Row, Col, Button } from "reactstrap";
 import { FaCheckCircle } from "react-icons/fa";
 import Marquee from "react-fast-marquee";
+import Image from "next/image";
+import logodemo from "../assets/images/cpm-logo.png"
 
 const WhyUsSection = () => {
     return (
@@ -72,28 +74,28 @@ const WhyUsSection = () => {
                             <div className="my-3">
                                 <Marquee speed={50} gradient={false}>
                                     <div className="d-flex align-items-center gap-5 mx-3">
-                                        <img
-                                            src="https://via.placeholder.com/90x40?text=Dream+Dots"
+                                        <Image
+                                            src={logodemo}
                                             alt="Dream Dots"
                                             height="40"
                                         />
-                                        <img
-                                            src="https://via.placeholder.com/80x40?text=Furdo"
+                                        <Image
+                                            src={logodemo}
                                             alt="Furdo"
                                             height="40"
                                         />
-                                        <img
-                                            src="https://via.placeholder.com/90x40?text=Livspace"
+                                        <Image
+                                            src={logodemo}
                                             alt="Livspace"
                                             height="40"
                                         />
-                                        <img
-                                            src="https://via.placeholder.com/90x40?text=Livin+Interiors"
+                                        <Image
+                                            src={logodemo}
                                             alt="Livin Interiors"
                                             height="40"
                                         />
-                                        <img
-                                            src="https://via.placeholder.com/90x40?text=MagicHome"
+                                        <Image
+                                            src={logodemo}
                                             alt="MagicHome"
                                             height="40"
                                         />

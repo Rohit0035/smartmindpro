@@ -24,11 +24,16 @@ FaMapMarkerAlt
 import "../assets/styles/navbar.css";
 
 import menuData from "./menuData"; // ✅ Import dynamic menu data
+import CityPopup from "./CityPopup";
 
 export default function MainNavbar() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [expandedChild, setExpandedChild] = useState(null);
+
+  // citypopup
+  const [modalOpen, setModalOpen] = useState(false);
+  const toggleModal = () => setModalOpen(!modalOpen);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
@@ -55,25 +60,26 @@ export default function MainNavbar() {
       <div className="top-header py-1 border-bottom">
         <div className="container small text-muted">
           <div className="row">
-            <div className="col-6">
-              <div className="left-grid">
+            <div className="col-8">
+              <div className="left-grid d-flex ">
                 <NavbarBrand href="/" className="fw-bold text-white fs-3">
                   SmartMind
                 </NavbarBrand>
-                <span className="">
-                  <a href="#" className="text-white ms-4" >
-                     <FaMapMarkerAlt size={16} style={{marginTop:'-10px'}} />
+                <span className="" style={{marginTop:'12px'}}>
+                  <a href="#" onClick={toggleModal} className="text-white ms-4" >
+                     <FaMapMarkerAlt size={14}  />
+                     <span className="small ms-1 ">Bangalore</span>
                   </a>
                 </span>
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-4">
               <div className="right-grid d-flex justify-content-end">
                 <UncontrolledDropdown>
-                  <DropdownToggle caret color="#000" className="text-white me-2">
+                  <DropdownToggle caret color="transparent" className="text-white me-2">
                     Login
                   </DropdownToggle>
-                  <DropdownMenu>
+                  <DropdownMenu style={{zIndex:'9999'}}>
                     <DropdownItem>Profile</DropdownItem>
                     <DropdownItem>Settings</DropdownItem>
                     <DropdownItem divider />
@@ -219,7 +225,7 @@ export default function MainNavbar() {
                         </li>
                       ))}
                     </ul>
-                  </Collapse>
+                  </Collapse >
                 </li>
               ))}
             </ul>
@@ -232,6 +238,9 @@ export default function MainNavbar() {
         className={`smart-sidebar-overlay ${showSidebar ? "show" : ""}`}
         onClick={toggleSidebar}
       ></div>
+
+      {/* citypopup */}
+      <CityPopup isOpen={modalOpen} toggle={toggleModal} />
     </>
   );
 }

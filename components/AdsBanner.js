@@ -13,7 +13,7 @@ const AdsBanner = () => {
                 <Row>
                     <Col md='12'>
                         <h4 className="fw-bold mb-4">
-                            #PataBadloLifeBadlo Inspiration
+                            PataBadloLifeBadlo Inspiration
                             <span
                                 style={{
                                     display: "block",
@@ -36,9 +36,9 @@ const AdsBanner = () => {
                                     <div className="col-8">
                                         <p>
                                             <strong>
-                                                India's Migration Story:
+                                                Indias Migration Story
                                             </strong>
-                                            Drivers, Disruptions, and Real Estate Impact
+                                            Drivers Disruptions and Real Estate Impact
                                         </p>
                                     </div>
                                     <div className="col-4 text-end">
