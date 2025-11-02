@@ -4,7 +4,7 @@
   Root variables for colors and fonts
 ---------------------------------------*/
 :root {
-  --primary-color: #6e2e36;       
+  --primary-color: #6e2e36; 
   --secondary-color: #ff6a00;    
   --success-color: #28a745;
   --danger-color: #dc3545;
@@ -203,10 +203,10 @@ img {
 
 /* text-css */
 .st-txt-o{
-  white-space: nowrap; 
-  width: 100%; 
-  overflow: hidden;
-  text-overflow: ellipsis; 
+  white-space: nowrap !important; 
+  width: 100% !important; 
+  overflow: hidden !important;
+  text-overflow: ellipsis !important; 
 }
 
 /* css card overlay */
@@ -230,6 +230,10 @@ img {
   bottom: 0;
 }
 
+/* bredcrub */
+.breadcrumb{
+  margin-bottom: 0px !important;
+}
 /*--------------------------------------
   Responsive Typography
 ---------------------------------------*/

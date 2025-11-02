@@ -26,7 +26,7 @@ const HomeStatus = () => {
                                 Properties listed for you
                             </h5>
                             <a
-                                href="#"
+                                href="/property"
                                 className="text-st fw-semibold text-decoration-none mt-2 mb-0 d-inline-block"
                             >
                                 Continue last search →
