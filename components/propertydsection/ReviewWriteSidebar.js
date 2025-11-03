@@ -62,8 +62,8 @@ const ReviewWriteSidebar = ({ isOpen, toggle }) => {
             isOpen={isOpen}
             toggle={toggle}
             direction="end"
-            className="w-75"
-            style={{ top: "40px" }}
+            className="w-75 side-st-top"
+           
         >
             <OffcanvasHeader toggle={toggle}>Write your Review</OffcanvasHeader>
             <OffcanvasBody>

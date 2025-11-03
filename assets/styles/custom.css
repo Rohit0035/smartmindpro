@@ -79,3 +79,8 @@
 .swiper-slide:hover img {
   transform: scale(1.05);
 }
+
+/*  */
+.side-st-top{
+  top: 40px;
+}
