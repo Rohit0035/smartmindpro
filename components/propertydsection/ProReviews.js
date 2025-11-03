@@ -65,7 +65,7 @@ const ProReviews = () => {
                     <h4 className="fw-bold mb-0">L&T Raintree Boulevard Reviews & Ratings</h4>
                     <small className="text-sn c">
                         <Link href="javascript:void(0);" onClick={toggleSidebar} className=" small text-st">
-                            !Know how it's calculated
+                            !Know how its calculated
                         </Link>
                     </small>
                     <Row className="mt-4">

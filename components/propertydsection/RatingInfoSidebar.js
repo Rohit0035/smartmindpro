@@ -18,7 +18,7 @@ const RatingInfoSidebar = ({ isOpen, toggle }) => {
             }}
         >
             <OffcanvasHeader toggle={toggle}>
-                Know how it's calculated
+                Know how its calculated
             </OffcanvasHeader>
             <OffcanvasBody>
                 <h6 className="fw-bold">Rating Methodology</h6>

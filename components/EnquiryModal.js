@@ -13,8 +13,6 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import { FaWhatsapp } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
 
 const EnquiryModal = ({ modal, toggle }) => {
   return (
@@ -62,7 +60,7 @@ const EnquiryModal = ({ modal, toggle }) => {
               id="agreeCheck"
             />
             <label className="form-check-label small" htmlFor="agreeCheck">
-              I Agree to <span className="text-danger">SmartMind' Terms of Use</span>
+              I Agree to <span className="text-danger">SmartMind Terms of Use</span>
             </label>
           </div>
 

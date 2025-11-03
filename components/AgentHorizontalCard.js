@@ -12,36 +12,6 @@ const AgentHorizontalCard = () => {
         <Card className="border rounded-4 shadow-sm ">
             <CardBody className="p-3">
                 <Row className="">
-                    {/* <Col lg="12">
-                        <div className=" d-flex">
-                            <Image
-                                src={agentimg}
-                                alt="Agent"
-                                className="rounded-2 me-3 border border-2 border-info mb-2 bg-light"
-                                width="90"
-                                height="90"
-                            />
-                            <div>
-                                <h5 className="fw-bold mb-0">Jatin Gera</h5>
-                                <p className="mb-1 small">
-                                    Home Search Realty, <span className="fw-semibold">Mohali</span>
-                                </p>
-                                <p className="small text-secondary mb-2">Operating since: 2015</p>
-                            </div>
-                            <div className="ms-auto">
-                                <Badge color="success" style={{ float: 'right' }}>
-                                    verified
-                                </Badge>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col lg="12">
-                        <div className="" style={{backgroundColor:'#ffff'}}>
-
-                        </div>
-                    </Col> */}
-
-
                     {/* ===== Left Side: Agent Photo + Logo ===== */}
                     <Col md="2" className="text-center border-end mt-0">
                         <Image
@@ -120,9 +90,9 @@ const AgentHorizontalCard = () => {
                         md="3"
                         className="text-center border-start d-flex flex-column justify-content-center align-items-center py-3 bg-light"
                     >
-                        <div className="mb-2">
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/512/9443/9443871.png"
+                        <div className="mb-2 text-center">
+                            <Image
+                                src={comimg}
                                 alt="Preferred Agent"
                                 width="65"
                                 height="65"
