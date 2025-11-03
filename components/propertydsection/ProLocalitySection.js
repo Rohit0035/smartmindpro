@@ -40,7 +40,7 @@ const ProLocalitySection = () => {
     const swiperRef = useRef(null);
 
     return (
-        <Card className="border shadow-sm" data-aos="fade-up" id="aboutlocality">
+        <Card className="border-0 shadow-sm" data-aos="fade-up" id="aboutlocality">
             <CardBody>
                 {/* Header */}
                 <div className="d-flex justify-content-between align-items-center mb-3">

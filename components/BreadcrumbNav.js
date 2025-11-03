@@ -29,7 +29,7 @@ const BreadcrumbNav = () => {
     });
 
     return (
-        <div className="bg-light p-2 rounded shadow-sm mb-3">
+        <div className="bg-light p-2 rounded shadow-sm mb-0">
             <Container>
                 <Breadcrumb >
                     <BreadcrumbItem>

@@ -71,7 +71,7 @@ const WonerProperty = () => {
 
     return (
         <>
-            <Card data-aos="zoom-in" className="my-4 position-relative border shadow-sm" id="likedproperty">
+            <Card data-aos="zoom-in" className="my-4 position-relative border-0 shadow-sm" id="likedproperty">
                 <CardBody>
                     {/* Section Header */}
                     <Row className="align-items-center mb-3">

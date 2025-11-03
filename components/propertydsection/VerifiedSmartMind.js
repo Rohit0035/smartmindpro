@@ -73,7 +73,7 @@ const VerifiedSmartMind = () => {
         <>
             <Card
                 data-aos="zoom-in"
-                className="my-4 position-relative border shadow-sm"
+                className="my-4 position-relative border-0 shadow-sm"
                 id="likedproperty"
             >
                 <CardBody>

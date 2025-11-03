@@ -5,6 +5,7 @@
 ---------------------------------------*/
 :root {
   --primary-color: #6e2e36; 
+  /* --primary-color:   #0353ac;  */
   --secondary-color: #ff6a00;    
   --success-color: #28a745;
   --danger-color: #dc3545;

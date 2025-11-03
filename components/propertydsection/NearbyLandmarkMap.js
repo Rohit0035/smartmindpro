@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from "react";
 import {
   Container,
@@ -12,20 +12,30 @@ import {
   Card,
   CardBody,
 } from "reactstrap";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  useMap,
-} from "react-leaflet";
-import { FaBuilding, FaBus, FaTrain, FaSchool, FaShoppingBag, FaHospital } from "react-icons/fa";
+  FaBuilding,
+  FaBus,
+  FaTrain,
+  FaSchool,
+  FaShoppingBag,
+  FaHospital,
+} from "react-icons/fa";
 import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 
-// Custom map marker icon
-const markerIcon = new L.Icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
-  iconSize: [32, 32],
+// --- Custom Icon using SVG inside Leaflet DivIcon ---
+const markerIcon = L.divIcon({
+  className: "custom-leaflet-icon",
+  html: `
+    <div class="custom-marker">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#ff6a00" viewBox="0 0 384 512" width="28" height="28">
+        <path d="M192 0C86 0 0 86 0 192c0 87.3 57.3 160.8 136.5 183.8L192 512l55.5-136.2C326.7 352.8 384 279.3 384 192 384 86 298 0 192 0zM192 272c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"/>
+      </svg>
+    </div>
+  `,
+  iconSize: [28, 28],
+  iconAnchor: [14, 28],
 });
 
 const locations = {
@@ -61,7 +71,7 @@ const locations = {
   },
 };
 
-// Component that moves map when tab changes
+// 🔹 Subcomponent for Map re-centering when tab changes
 function ChangeMapView({ coords }) {
   const map = useMap();
   map.setView(coords, 14);
@@ -82,7 +92,7 @@ const NearbyLandmarkMap = () => {
     <Container fluid className="p-3 border rounded bg-white shadow-sm">
       <h5 className="fw-bold mb-3">Popular Landmarks Nearby</h5>
 
-      {/* Live Map Section */}
+      {/* Map Section */}
       <div className="rounded overflow-hidden mb-4" style={{ height: "300px" }}>
         <MapContainer
           center={center}
@@ -96,11 +106,7 @@ const NearbyLandmarkMap = () => {
           />
           <ChangeMapView coords={center} />
           {activePoints.map((point, i) => (
-            <Marker
-              key={i}
-              position={[point.lat, point.lng]}
-              icon={markerIcon}
-            >
+            <Marker key={i} position={[point.lat, point.lng]} icon={markerIcon}>
               <Popup>
                 <b>{point.name}</b>
                 <br />
@@ -111,62 +117,28 @@ const NearbyLandmarkMap = () => {
         </MapContainer>
       </div>
 
-      {/* Tabs Navigation */}
+      {/* Tabs */}
       <Nav tabs className="border-bottom mb-3 flex-nowrap overflow-auto small">
-        <NavItem>
-          <NavLink
-            className={`small fw-semibold  d-flex st-txt-o  ${activeTab === "1" ? "text-st border-st border-bottom" : ""}`}
-            onClick={() => toggleTab("1")}
-            style={{ cursor: "pointer" , fontSize:'12px'}}
-          >
-            <FaBuilding className="me-2" style={{fontSize:'12px'}} /> Commercial Hub
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={`small fw-semibold d-flex st-txt-o ${activeTab === "2" ? "text-st border-st border-bottom" : ""}`}
-            onClick={() => toggleTab("2")}
-            style={{ cursor: "pointer", fontSize:'12px' }}
-          >
-            <FaBus className="me-2" style={{fontSize:'12px'}} /> Transportation Hubs
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={`px-1 small fw-semibold d-flex st-txt-o ${activeTab === "3" ? "text-st border-st border-bottom" : ""}`}
-            onClick={() => toggleTab("3")}
-            style={{ cursor: "pointer", fontSize:'12px' }}
-          >
-            <FaTrain className="me-2" style={{fontSize:'12px'}} /> Metro Stations
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={`px-1 small fw-semibold d-flex st-txt-o ${activeTab === "4" ? "text-st border-st border-bottom" : ""}`}
-            onClick={() => toggleTab("4")}
-            style={{ cursor: "pointer", fontSize:'12px' }}
-          >
-            <FaSchool className="me-2" style={{fontSize:'12px'}} /> Educational Institutes
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={`px-1 small fw-semibold d-flex st-txt-o ${activeTab === "5" ? "text-st border-st border-bottom" : ""}`}
-            onClick={() => toggleTab("5")}
-            style={{ cursor: "pointer", fontSize:'12px' }}
-          >
-            <FaShoppingBag className="me-2" style={{fontSize:'12px'}} /> Shopping Centre
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={`px-1 small fw-semibold d-flex st-txt-o ${activeTab === "6" ? "text-st border-st border-bottom" : ""}`}
-            onClick={() => toggleTab("6")}
-            style={{ cursor: "pointer", fontSize:'12px' }}
-          >
-            <FaHospital className="me-2" style={{fontSize:'12px'}} /> Hospital
-          </NavLink>
-        </NavItem>
+        {[
+          { id: "1", icon: <FaBuilding />, label: "Commercial Hub" },
+          { id: "2", icon: <FaBus />, label: "Transportation Hubs" },
+          { id: "3", icon: <FaTrain />, label: "Metro Stations" },
+          { id: "4", icon: <FaSchool />, label: "Educational Institutes" },
+          { id: "5", icon: <FaShoppingBag />, label: "Shopping Centre" },
+          { id: "6", icon: <FaHospital />, label: "Hospital" },
+        ].map((tab) => (
+          <NavItem key={tab.id}>
+            <NavLink
+              className={`small fw-semibold d-flex align-items-center ${
+                activeTab === tab.id ? "text-st border-st border-bottom" : ""
+              }`}
+              onClick={() => toggleTab(tab.id)}
+              style={{ cursor: "pointer", fontSize: "12px", whiteSpace: "nowrap" }}
+            >
+              {tab.icon} <span className="ms-2">{tab.label}</span>
+            </NavLink>
+          </NavItem>
+        ))}
       </Nav>
 
       {/* Tab Content */}
@@ -175,13 +147,11 @@ const NearbyLandmarkMap = () => {
           <Row>
             {activePoints.map((item, index) => (
               <Col md="6" key={index}>
-                <Card className="mb-2 border-0">
+                <Card className="mb-2 border-0 landmark-card">
                   <CardBody>
                     <p className="mb-1 fw-semibold">
                       {item.name}{" "}
-                      <span className="text-muted small">
-                        ({item.distance})
-                      </span>
+                      <span className="text-muted small">({item.distance})</span>
                     </p>
                   </CardBody>
                 </Card>

@@ -30,7 +30,7 @@ const ProAmenities = () => {
   ];
 
   return (
-    <Card className="mt-4 shadow-sm border" data-aos="fade-up" id="amenities">
+    <Card className="mt-4 shadow-sm border-0" data-aos="fade-up" id="amenities">
       <CardBody>
         <h4 className="fw-bold mb-4">Amenities</h4>
         <Row>

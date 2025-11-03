@@ -27,7 +27,7 @@ const PropertyDescription = () => {
 
     return (
         <>
-            <Card className="border" data-aos="zoom-in" id="Overview">
+            <Card className="border-0" data-aos="zoom-in" id="Overview">
                 <CardBody>
                     <Row>
                         <Col lg="12">

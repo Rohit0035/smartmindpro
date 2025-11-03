@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import React, { useState, useEffect } from "react";
 import {
     Container,
@@ -9,6 +8,9 @@ import {
     CardBody,
     Button,
     Badge,
+    Nav,
+    NavLink,
+    NavItem,
 } from "reactstrap";
 import {
     FaBed,
@@ -28,12 +30,20 @@ import PropertyLiked from "../../components/propertydsection/PropertyLiked";
 import ProLocalitySection from "../../components/propertydsection/ProLocalitySection";
 import ProReviews from "../../components/propertydsection/ProReviews";
 import NearbyLandmarks from "../../components/propertydsection/NearbyLandmarks";
-import NearbyLandmarkMap from "../../components/propertydsection/NearbyLandmarkMap";
+// import NearbyLandmarkMap from "../../components/propertydsection/NearbyLandmarkMap";
 import "leaflet/dist/leaflet.css";
 import WonerProperty from "../../components/propertydsection/WonerProperty";
 import VerifiedSmartMind from "../../components/propertydsection/VerifiedSmartMind";
 import ProPriceTrends from "../../components/propertydsection/ProPriceTrends";
-
+import ProAdsBanner from "../../components/propertydsection/ProAdsBanner";
+import ProAgentsList from "../../components/propertydsection/ProAgentsList";
+import ProTools from "../../components/propertydsection/ProTools";
+import ProCloserSearch from "../../components/propertydsection/ProCloserSearch";
+import dynamic from "next/dynamic";
+const NearbyLandmarkMap = dynamic(
+    () => import("../../components/propertydsection/NearbyLandmarkMap"),
+    { ssr: false }
+);
 const PropertyDetail = () => {
     const [showStickyNav, setShowStickyNav] = useState(false);
 
@@ -47,17 +57,45 @@ const PropertyDetail = () => {
     }, []);
 
     return (
-        <div className="property-detail-page position-relative">
+        <div className="property-detail-page position-relative bg-light py-4">
             {/* ✅ Sticky Product Navbar (hidden by default, shows on scroll) */}
             {showStickyNav && (
-                <div style={{ zIndex: '11111' }} className="sticky-top bg-white border-bottom shadow-sm py-2 px-3 d-flex justify-content-between align-items-center">
-                    <h6 className="mb-0 fw-bold">₹3.3 Lac | 4 BHK - Whitefield, Bangalore</h6>
-                    <Button color="danger" className="rounded-pill px-3 py-1">
-                        Contact Agent
-                    </Button>
+                <div style={{ zIndex: '11111' }} className=" d-none d-sm-block container sticky-top bg-white ">
+                    <Row>
+                        <Col xs="12" sm="12" md="12" lg="4">
+                            <h6 className="mb-0 fw-bold st-txt-o mt-3">₹3.3 Lac | 4 BHK - Whitefield, Bangalore</h6>
+                        </Col>
+                        <Col xs="12" sm="12" md="12" lg="4">
+                            <Nav className=" mb-1 small mt-2 ">
+                                <NavItem>
+                                    <NavLink href="#Overview" className="text-dark fw-semibold me-2 px-2">
+                                        Overview
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#moredetails" className="text-dark fw-semibold me-2 px-2">
+                                        More Details
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#aboutlocality" className="text-dark fw-semibold px-2">
+                                        About Locality
+                                    </NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Col>
+                        <Col xs="12" sm="12" md="12" lg="4">
+                            <div className="text-end mt-2 mb-1">
+                                <Button color="danger" className="rounded-pill px-3 py-1 ">
+                                    Contact Agent
+                                </Button>
+                            </div>
+
+                        </Col>
+                    </Row>
                 </div>
             )}
-            <div className="mt-4">
+            <div className="">
                 <Container>
                     <Row>
                         {/*LEFT SIDE */}
@@ -97,7 +135,7 @@ const PropertyDetail = () => {
                         {/*RIGHT SIDE - Sticky Sidebar */}
                         <Col lg="3" md="12">
                             <div className="position-sticky" style={{ top: showStickyNav ? "80px" : "20px" }}>
-                                <Card className="shadow-sm mb-4">
+                                <Card className="shadow-sm mb-4 border-0">
                                     <CardBody className="text-center">
                                         <h6 className="fw-bold mb-1">Contact Agent</h6>
                                         <p className="text-muted">Lavanya</p>
@@ -107,7 +145,7 @@ const PropertyDetail = () => {
                                     </CardBody>
                                 </Card>
 
-                                <Card className="shadow-sm mb-4 text-center">
+                                <Card className="shadow-sm mb-4 text-center border-0">
                                     <CardBody>
                                         <Button color="outline-danger" className="rounded-pill w-100">
                                             <FaDownload className="me-2" /> Download Brochure
@@ -115,7 +153,36 @@ const PropertyDetail = () => {
                                     </CardBody>
                                 </Card>
 
-                                <Card className="shadow-sm">
+                                <Card className="shadow-sm mb-2 border-0">
+                                    <CardBody className="text-center">
+                                        <h6 className="fw-bold">Top Agent in this Locality</h6>
+                                        <div className="text-center my-3">
+                                            <FaUserCircle size={60} className="text-secondary" />
+                                            <p className="mb-0 fw-bold mt-2">Nausheen</p>
+                                            <small className="text-muted">White City Properties</small>
+                                        </div>
+                                        <div className="d-flex justify-content-around mt-2">
+                                            <div>
+                                                <h6 className="fw-bold mb-0">21</h6>
+                                                <small>For Sale</small>
+                                            </div>
+                                            <div>
+                                                <h6 className="fw-bold mb-0">30</h6>
+                                                <small>For Rent</small>
+                                            </div>
+                                        </div>
+                                        <div className="d-flex gap-2 mt-3">
+                                            <Button color="outline-dark" className="w-50 rounded-pill btn-sm">
+                                                View Profile
+                                            </Button>
+                                            <Button color="danger" className="w-50 rounded-pill btn-sm">
+                                                View Properties
+                                            </Button>
+                                        </div>
+                                    </CardBody>
+                                </Card>
+
+                                <Card className="shadow-sm mb-2 border-0">
                                     <CardBody className="text-center">
                                         <h6 className="fw-bold">Top Agent in this Locality</h6>
                                         <div className="text-center my-3">
@@ -159,6 +226,26 @@ const PropertyDetail = () => {
                         {/* with graph section */}
                         <Col lg="12">
                             <ProPriceTrends />
+                        </Col>
+
+                        {/* ads banner section */}
+                        <Col lg="12">
+                            <ProAdsBanner />
+                        </Col>
+
+                        {/* Agents section */}
+                        <Col lg="12">
+                            <ProAgentsList />
+                        </Col>
+
+                        {/* pro tolls  */}
+                        <Col lg="12">
+                            <ProTools />
+                        </Col>
+
+                        {/* close serach */}
+                        <Col lg="12">
+                            <ProCloserSearch />
                         </Col>
                     </Row>
                 </Container>

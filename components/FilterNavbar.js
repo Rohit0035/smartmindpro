@@ -1,338 +1,229 @@
 "use client";
-
 import React, { useState } from "react";
 import {
-  Navbar,
+  Container,
+  Row,
+  Col,
+  Nav,
   NavItem,
   Dropdown,
   DropdownToggle,
   DropdownMenu,
+  Modal,
+  ModalBody,
   Button,
-  Collapse,
-  NavLink,
-  TabContent,
-  TabPane,
-  Row,
-  Col,
-  Input,
-  Nav,
 } from "reactstrap";
+import Select from "react-select";
 import {
-  FaChevronDown,
-  FaBars,
-  FaTimes,
+  FaMapMarkerAlt,
+  FaRupeeSign,
   FaHome,
-  FaCity,
-  FaWhatsapp,
+  FaBuilding,
+  FaCouch,
+  FaUserTie,
+  FaFilter,
 } from "react-icons/fa";
-import classnames from "classnames";
+import { IoIosArrowDown } from "react-icons/io";
 import "../assets/styles/navbarfilter.css";
 
 const FilterNavbar = () => {
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("1");
-  const [openMobileDropdown, setOpenMobileDropdown] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState({
+    location: false,
+    budget: false,
+    bhk: false,
+    property: false,
+    furnishing: false,
+    postedby: false,
+  });
 
-  const toggleDropdown = (name) =>
-    setOpenDropdown(openDropdown === name ? null : name);
-  const toggleMobile = () => setIsMobileOpen(!isMobileOpen);
-  const toggleMobileDropdown = (name) =>
-    setOpenMobileDropdown(openMobileDropdown === name ? null : name);
+  const [modal, setModal] = useState({ open: false, type: "" });
 
-  const toggleTab = (tab) => {
-    if (activeTab !== tab) setActiveTab(tab);
+  const toggleDropdown = (key) => {
+    setDropdownOpen((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  const filters = [
-    { label: "Rent", name: "rent" },
-    { label: "Locality", name: "locality" },
-    { label: "Budget", name: "budget" },
-    { label: "BHK", name: "bhk" },
-    { label: "Posted By", name: "posted" },
-    { label: "More Filters", name: "more" },
+  const toggleModal = (type = "") => {
+    setModal((prev) => ({
+      open: !prev.open,
+      type: type || "",
+    }));
+  };
+
+  // Dummy Select Options
+  const locationOptions = [
+    { value: "koramangala", label: "Koramangala" },
+    { value: "indiranagar", label: "Indiranagar" },
+    { value: "whitefield", label: "Whitefield" },
+    { value: "hebbal", label: "Hebbal" },
   ];
 
-  // Reusable dropdown footer
-  const Footer = () => (
-    <div className="nf-dropdown-footer">
-      <Button color="danger" className="nf-apply-btn">
-        Apply
-      </Button>
-      <Button outline color="danger" className="nf-reset-btn ms-2">
-        Reset
-      </Button>
-    </div>
-  );
+  const budgetOptions = [
+    { value: "10-20L", label: "₹10L - ₹20L" },
+    { value: "20-40L", label: "₹20L - ₹40L" },
+    { value: "40-60L", label: "₹40L - ₹60L" },
+    { value: "60L+", label: "₹60L+" },
+  ];
+
+  const bhkOptions = [
+    { value: "1bhk", label: "1 BHK" },
+    { value: "2bhk", label: "2 BHK" },
+    { value: "3bhk", label: "3 BHK" },
+    { value: "4bhk", label: "4 BHK" },
+  ];
+
+  const propertyTypeOptions = [
+    { value: "apartment", label: "Apartment" },
+    { value: "villa", label: "Villa" },
+    { value: "independent", label: "Independent House" },
+    { value: "studio", label: "Studio" },
+  ];
+
+  const furnishingOptions = [
+    { value: "furnished", label: "Fully Furnished" },
+    { value: "semi", label: "Semi Furnished" },
+    { value: "unfurnished", label: "Unfurnished" },
+  ];
+
+  const postedByOptions = [
+    { value: "owner", label: "Owner" },
+    { value: "dealer", label: "Dealer" },
+    { value: "builder", label: "Builder" },
+  ];
+
+  // FIXED FUNCTION: takes key parameter
+  const getSelectOptions = (key) => {
+    switch (key) {
+      case "location":
+        return locationOptions;
+      case "budget":
+        return budgetOptions;
+      case "bhk":
+        return bhkOptions;
+      case "property":
+        return propertyTypeOptions;
+      case "furnishing":
+        return furnishingOptions;
+      case "postedby":
+        return postedByOptions;
+      default:
+        return [];
+    }
+  };
+
+  const getTitle = () => {
+    const titles = {
+      location: "Select Location",
+      budget: "Select Budget",
+      bhk: "Select BHK",
+      property: "Select Property Type",
+      furnishing: "Select Furnishing",
+      postedby: "Select Posted By",
+    };
+    return titles[modal.type] || "";
+  };
 
   return (
-    <div className="nf-wrapper">
-      {/* Navbar */}
-      <Navbar expand="md" className="nf-navbar shadow-sm sticky-top">
-        <div className="nf-container d-flex justify-content-between align-items-center">
-          <h6 className="nf-brand m-0">
-            <FaHome className="me-2 text-danger" />
-            Property Filters
-          </h6>
+    <>
+      {/*Desktop Navbar */}
+      <div
+        className="filter-navbar sticky-top shadow-sm  d-none d-md-block mb-3"
+        style={{
+          color: "white",
+          padding: "6px 0",
+          zIndex: 1050,
+          backgroundColor:'#6e2e36'
+        }}
+      >
+        <Container>
+          <Row>
+            <Col xs="12">
+              <Nav className="d-flex flex-wrap">
+                {[
+                  { key: "location", icon: <FaMapMarkerAlt size={14} />, label: "Location" },
+                  { key: "budget", icon: <FaRupeeSign size={14}/>, label: "Budget" },
+                  { key: "bhk", icon: <FaHome size={14} />, label: "BHK" },
+                  { key: "property", icon: <FaBuilding size={14} />, label: "Property Type" },
+                  { key: "furnishing", icon: <FaCouch size={14} />, label: "Furnishing" },
+                  { key: "postedby", icon: <FaUserTie size={14} />, label: "Posted By" },
+                ].map((item) => (
+                  <NavItem key={item.key}>
+                    <Dropdown
+                      isOpen={dropdownOpen[item.key]}
+                      toggle={() => toggleDropdown(item.key)}
+                    >
+                      <DropdownToggle
+                        color="light"
+                        className="rounded-pill px-3 py-1 d-flex align-items-center me-2"
+                      >
+                        <span className="me-2 text-st small">{item.icon}</span>
+                        {item.label}
+                        <IoIosArrowDown className="ms-2" />
+                      </DropdownToggle>
+                      <DropdownMenu className="p-3" style={{ minWidth: "250px" }}>
+                        <Select
+                          isMulti
+                          options={getSelectOptions(item.key)} 
+                          placeholder={`Select ${item.label}`}
+                        />
+                      </DropdownMenu>
+                    </Dropdown>
+                  </NavItem>
+                ))}
+              </Nav>
+            </Col>
+          </Row>
+        </Container>
+      </div>
 
-          {/* Mobile toggle */}
-          <div className="d-md-none">
-            <Button
-              color="light"
-              className="nf-toggle-btn border"
-              onClick={toggleMobile}
-            >
-              {isMobileOpen ? <FaTimes /> : <FaBars />}
+      {/* Mobile Sticky Bottom Bar */}
+      <div className="filter-bottom-bar d-md-none">
+        {[
+          { key: "location", icon: <FaMapMarkerAlt />, label: "Location" },
+          { key: "budget", icon: <FaRupeeSign />, label: "Budget" },
+          { key: "bhk", icon: <FaHome />, label: "BHK" },
+          { key: "property", icon: <FaBuilding />, label: "Property" },
+          { key: "filter", icon: <FaFilter />, label: "More" },
+        ].map((item) => (
+          <div
+            key={item.key}
+            className="filter-bottom-icon"
+            onClick={() => toggleModal(item.key)}
+          >
+            {item.icon}
+            <small>{item.label}</small>
+          </div>
+        ))}
+      </div>
+
+      {/*Bottom Modal */}
+      <Modal
+        isOpen={modal.open}
+        toggle={() => toggleModal()}
+        className="filter-modal-bottom"
+        centered
+      >
+        <ModalBody>
+          <div className="text-center mb-2">
+            <div className="filter-modal-handle"></div>
+            <h6 className="fw-bold mb-3">{getTitle()}</h6>
+          </div>
+          <Select
+            isMulti
+            options={getSelectOptions(modal.type)} 
+            placeholder={getTitle()}
+            className="mb-3"
+          />
+          <div className="d-flex justify-content-between">
+            <Button color="secondary" outline onClick={() => toggleModal()}>
+              Cancel
+            </Button>
+            <Button color="danger" onClick={() => toggleModal()}>
+              Apply
             </Button>
           </div>
-
-          {/* Desktop Nav */}
-          <div className="nf-desktop-nav d-none d-md-flex align-items-center gap-2">
-            {filters.map((item) => (
-              <NavItem key={item.name} className="nf-navitem">
-                <Dropdown
-                  isOpen={openDropdown === item.name}
-                  toggle={() => toggleDropdown(item.name)}
-                  onMouseEnter={() => toggleDropdown(item.name)}
-                  onMouseLeave={() => toggleDropdown(null)}
-                >
-                  <DropdownToggle className="nf-dropdown-toggle">
-                    {item.label}
-                    <FaChevronDown className="ms-1" size={12} />
-                  </DropdownToggle>
-
-                  <DropdownMenu className="nf-dropdown-menu">
-                    {item.name === "rent" && (
-                      <div className="nf-dropdown-content">
-                        <h6 className="fw-bold mb-3">Choose Category</h6>
-                        <div className="d-flex gap-2 flex-wrap">
-                          <Button color="danger" size="sm">
-                            Rent
-                          </Button>
-                          <Button outline color="secondary" size="sm">
-                            Buy
-                          </Button>
-                          <Button outline color="secondary" size="sm">
-                            PG
-                          </Button>
-                        </div>
-                        <Footer />
-                      </div>
-                    )}
-
-                    {item.name === "locality" && (
-                      <div className="nf-dropdown-content">
-                        <h6 className="fw-bold mb-3">
-                          Top Localities in Bangalore
-                        </h6>
-                        <div className="d-flex flex-wrap gap-2">
-                          {[
-                            "Whitefield",
-                            "Electronic City",
-                            "Sarjapur",
-                            "Hebbal",
-                            "Marathahalli",
-                          ].map((loc) => (
-                            <Button
-                              key={loc}
-                              outline
-                              color="secondary"
-                              size="sm"
-                            >
-                              + {loc}
-                            </Button>
-                          ))}
-                        </div>
-                        <Footer />
-                      </div>
-                    )}
-
-                    {item.name === "budget" && (
-                      <div className="nf-dropdown-content">
-                        <h6 className="fw-bold mb-3">Select Budget Range</h6>
-                        <Row className="g-2 mb-3">
-                          <Col>
-                            <Input type="select">
-                              <option>₹ 5,000</option>
-                              <option>₹ 10,000</option>
-                              <option>₹ 20,000</option>
-                            </Input>
-                          </Col>
-                          <Col>
-                            <Input type="select">
-                              <option>₹ 50,000</option>
-                              <option>₹ 1,00,000</option>
-                              <option>₹ 2,00,000</option>
-                            </Input>
-                          </Col>
-                        </Row>
-                        <input type="range" className="form-range" />
-                        <Footer />
-                      </div>
-                    )}
-
-                    {item.name === "bhk" && (
-                      <div className="nf-dropdown-content">
-                        <h6 className="fw-bold mb-3">Select BHK Type</h6>
-                        <div className="d-flex flex-wrap gap-2">
-                          {["1 BHK", "2 BHK", "3 BHK", "4 BHK"].map((b) => (
-                            <Button
-                              key={b}
-                              outline
-                              color="secondary"
-                              size="sm"
-                            >
-                              + {b}
-                            </Button>
-                          ))}
-                        </div>
-                        <Footer />
-                      </div>
-                    )}
-
-                    {item.name === "posted" && (
-                      <div className="nf-dropdown-content">
-                        <h6 className="fw-bold mb-3">Posted By</h6>
-                        <div className="d-flex flex-wrap gap-2">
-                          {["Owner", "Broker", "Builder"].map((type) => (
-                            <Button
-                              key={type}
-                              outline
-                              color="secondary"
-                              size="sm"
-                            >
-                              + {type}
-                            </Button>
-                          ))}
-                        </div>
-                        <Footer />
-                      </div>
-                    )}
-
-                    {item.name === "more" && (
-                      <div className="nf-dropdown-content nf-more-tabs">
-                        <Row>
-                          <Col md="4" className="nf-tab-sidebar">
-                            <Nav vertical pills>
-                              {[
-                                "Area Range",
-                                "Amenities",
-                                "Furnishing",
-                                "Availability",
-                                "Tenant Type",
-                              ].map((tab, i) => (
-                                <NavLink
-                                  key={i}
-                                  className={classnames("nf-tab-link", {
-                                    active: activeTab === `${i + 1}`,
-                                  })}
-                                  onClick={() => toggleTab(`${i + 1}`)}
-                                >
-                                  {tab}
-                                </NavLink>
-                              ))}
-                            </Nav>
-                          </Col>
-                          <Col md="8">
-                            <TabContent activeTab={activeTab}>
-                              <TabPane tabId="1">
-                                <h6 className="fw-bold mb-3">
-                                  Select Area Range
-                                </h6>
-                                <Row className="g-2 mb-3">
-                                  <Col>
-                                    <Input placeholder="Min sqft" />
-                                  </Col>
-                                  <Col>
-                                    <Input placeholder="Max sqft" />
-                                  </Col>
-                                </Row>
-                                <input type="range" className="form-range" />
-                              </TabPane>
-                              <TabPane tabId="2">
-                                <div className="d-flex flex-wrap gap-2">
-                                  {[
-                                    "Lift",
-                                    "Power Backup",
-                                    "Parking",
-                                    "Gym",
-                                    "Pool",
-                                  ].map((a) => (
-                                    <Button
-                                      key={a}
-                                      outline
-                                      color="secondary"
-                                      size="sm"
-                                    >
-                                      + {a}
-                                    </Button>
-                                  ))}
-                                </div>
-                              </TabPane>
-                            </TabContent>
-                          </Col>
-                        </Row>
-                        <Footer />
-                      </div>
-                    )}
-                  </DropdownMenu>
-                </Dropdown>
-              </NavItem>
-            ))}
-          </div>
-        </div>
-      </Navbar>
-
-      {/* Mobile Sidebar */}
-      <Collapse isOpen={isMobileOpen} className="nf-sidebar">
-        <div className="nf-sidebar-content">
-          <div className="nf-sidebar-header">
-            <h6 className="m-0">
-              <FaCity className="me-2 text-danger" />
-              Filters
-            </h6>
-            <FaTimes className="nf-close" onClick={toggleMobile} />
-          </div>
-
-          <div className="nf-sidebar-body">
-            {filters.map((item) => (
-              <div key={item.name} className="nf-mobile-dropdown">
-                <div
-                  className="nf-mobile-dropdown-header"
-                  onClick={() => toggleMobileDropdown(item.name)}
-                >
-                  <span>{item.label}</span>
-                  <FaChevronDown
-                    className={`ms-auto ${
-                      openMobileDropdown === item.name ? "rotate" : ""
-                    }`}
-                  />
-                </div>
-
-                <Collapse isOpen={openMobileDropdown === item.name}>
-                  <div className="nf-mobile-dropdown-body">
-                    <p className="small text-muted mb-2">
-                      {item.label} Filter Content
-                    </p>
-                    <Button color="danger" size="sm" className="me-2">
-                      Apply
-                    </Button>
-                    <Button outline color="danger" size="sm">
-                      Reset
-                    </Button>
-                  </div>
-                </Collapse>
-              </div>
-            ))}
-
-            <Button color="danger" className="w-100 mt-3 rounded-pill">
-              <FaWhatsapp className="me-2" />
-              Apply Filters
-            </Button>
-          </div>
-        </div>
-      </Collapse>
-    </div>
+        </ModalBody>
+      </Modal>
+    </>
   );
 };
 

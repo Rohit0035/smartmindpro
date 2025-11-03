@@ -39,7 +39,7 @@ const ProMoreDetail = () => {
     return (
         <>
             <Card
-                className="mt-4 shadow-sm border small"
+                className="mt-4 shadow-sm border-0 small"
                 data-aos="zoom-in"
                 id="moredetails"
             >

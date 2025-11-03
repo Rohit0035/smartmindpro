@@ -60,7 +60,7 @@ const ProReviews = () => {
     );
     return (
         <>
-            <Card className="borer mt-4">
+            <Card className="border-0 mt-4">
                 <CardBody >
                     <h4 className="fw-bold mb-0">L&T Raintree Boulevard Reviews & Ratings</h4>
                     <small className="text-sn c">

@@ -1,33 +1,59 @@
 "use client";
-import React from "react";
-import { Button, Card, CardBody, Col, Container, Row } from "reactstrap";
+import React, { useState } from "react";
+import { Button, Card, CardBody, Col, Container, Row, Input, InputGroup, InputGroupText  } from "reactstrap";
 import BreadcrumbNav from "../../components/BreadcrumbNav";
 import Link from "next/link";
 import PropertyCard from "../../components/PropertyCard";
 import AgentCard from "../../components/AgentCard";
+import { FaSortAmountDownAlt } from "react-icons/fa";
+import FilterNavbar from "../../components/FilterNavbar";
 
 const PropertyList = () => {
+      const [sortOption, setSortOption] = useState("relevance");
+
     return (
         <>
             <BreadcrumbNav className="mb-0" />
+            <FilterNavbar/>
             <Container>
                 <Row>
                     <Col lg="9">
                         <Row>
                             <Col lg="12" className="">
                                 <div className="">
-                                    <Link href="/" className="btn btn-light btn-sm border-bottom me-2 ">
+                                    <Link href="/" className="btn btn-light btn-sm border-bottom me-2 mb-2 ">
                                         Properties <span>(19,716)</span>
                                     </Link>
-                                    <Link href="/agents" className="btn btn-light btn-sm border-bottom ">
+                                    <Link href="/agents" className="btn btn-light btn-sm border-bottom mb-2">
                                         Top Agents
                                     </Link>
+                                    <span style={{float:'right'}}>
+                                        <InputGroup className="rounded-pill shadow-sm bg-light" style={{ width: "150px" }}>
+                                            <InputGroupText className="bg-light border-0 rounded-start-pill ps-3 small">
+                                                <FaSortAmountDownAlt className="text-muted" />
+                                            </InputGroupText>
+                                            <Input
+                                                type="select"
+                                                value={sortOption}
+                                                onChange={(e) => setSortOption(e.target.value)}
+                                                className="border-0 bg-light small fw-semibold text-dark rounded-end-pill small"
+                                                style={{fontSize:'12px'}}
+                                            >
+                                                <option value="relevance">Sort by: Relevance</option>
+                                                <option value="priceLowHigh">Price - Low to High</option>
+                                                <option value="priceHighLow">Price - High to Low</option>
+                                                <option value="recent">Most Recent</option>
+                                                <option value="rateLowHigh">Rate/sqft - Low to High</option>
+                                                <option value="rateHighLow">Rate/sqft - High to Low</option>
+                                            </Input>
+                                        </InputGroup>
+                                    </span>
                                 </div>
                             </Col>
                             <Col lg="12">
                                 <h3 className=" pt-4 ">19837 results | Flats for Rent in Bangalore</h3>
                             </Col>
-                            <Col xs="12" sm="12"  md="14" lg="12">
+                            <Col xs="12" sm="12" md="14" lg="12">
                                 <PropertyCard />
                                 <PropertyCard />
                                 <PropertyCard />

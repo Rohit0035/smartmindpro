@@ -16,7 +16,7 @@ import Link from "next/link";
 
 const ProAboutProject = () => {
     return (
-        <Card className="mt-4 shadow-sm border" data-aos="fade-up" id="aboutproject">
+        <Card className="mt-4 shadow-sm border-0" data-aos="fade-up" id="aboutproject">
             <CardBody>
                 <Row>
                     <Col lg="12">

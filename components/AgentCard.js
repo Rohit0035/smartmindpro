@@ -50,9 +50,7 @@ const AgentCard = () => {
 
                 {/* View Profile Button */}
                 <Button
-                    color="danger"
-                    outline
-                    className="rounded-pill fw-semibold w-100 py-2 mt-1"
+                    className=" text-white btn-danger rounded-pill fw-semibold w-100 py-2 mt-1 btn-sm"
                 >
                     View Profile
                 </Button>

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Button, Card, CardBody, Col, Container, Row } from "reactstrap";
+import { Button, Card, CardBody, Col, Container, Input, Row } from "reactstrap";
 import Link from "next/link";
 import Select from "react-select";
 import AgentHorizontalCard from "../../components/AgentHorizontalCard";
@@ -68,14 +68,17 @@ const Agents = () => {
                             </Col>
                             <Col lg="12" className="bg-light mt-3 rounded py-2">
                                 <Row>
-                                    <Col md="6" className="mb-xs-3">
+                                    <Col md="4" className="mb-xs-3">
                                         Agents in Bangalore Who Can Help You
                                     </Col>
                                     <Col md="2">
                                         <span className="fw-bold me-2">Filters:</span>
                                     </Col>
-                                    <Col md="4" className="">
-                                        <Row>
+                                    <Col md="6" className="">
+                                        <Row> 
+                                            <Col xs="12" sm="12" md="4" lg="4" className="mb-sm-0 mb-2"> 
+                                                 <Input type="serach" placeholder="serach..." style={{height:'35px'}} />
+                                            </Col>
                                             <Col>
                                                 <Select
                                                     options={cityOptions}
@@ -99,7 +102,17 @@ const Agents = () => {
                             <Col lg="12" className="mt-3">
                                <AgentHorizontalCard />
                             </Col>
+                            <Col lg="12" className="mt-3">
+                               <AgentHorizontalCard />
+                            </Col>
+                            <Col lg="12" className="mt-3">
+                               <AgentHorizontalCard />
+                            </Col>
+                            <Col lg="12" className="mt-3">
+                               <AgentHorizontalCard />
+                            </Col>
                         </Row>
+                        
                     </Col>
                     <Col lg="1">
 

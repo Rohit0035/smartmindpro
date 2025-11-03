@@ -47,7 +47,7 @@ const landmarksData = [
 
 const NearbyLandmarks = () => {
     return (
-        <Card className="my-4">
+        <Card className="my-4 border-0">
             <CardBody>
                 <h5 className="fw-bold mb-4">
                     Landmarks Near L&T Raintree Boulevard

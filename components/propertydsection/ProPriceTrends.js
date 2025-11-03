@@ -80,7 +80,7 @@ const ProPriceTrends = () => {
     return (
 
         <>
-            <Card className="my-3 border">
+            <Card className="my-3 border-0">
                 <CardBody>
                     <h5 className="fw-bold mb-1">Price Trends in L and T Raintree Boulevard</h5>
                     <p className="text-muted small mb-4">
