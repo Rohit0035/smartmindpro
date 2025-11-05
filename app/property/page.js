@@ -21,7 +21,7 @@ const PropertyList = () => {
                         <Row>
                             <Col lg="12" className="">
                                 <div className="">
-                                    <Link href="/" className="btn btn-light btn-sm border-bottom me-2 mb-2 ">
+                                    <Link href="/property" className="btn btn-light btn-sm border-bottom me-2 mb-2 ">
                                         Properties <span>(19,716)</span>
                                     </Link>
                                     <Link href="/agents" className="btn btn-light btn-sm border-bottom mb-2">
