@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Select from "react-select";
 import { Container, Row, Col, Button } from "reactstrap";
 import { FaSearch, FaMapMarkerAlt, FaHome, FaRupeeSign } from "react-icons/fa";
+import { TypeAnimation } from 'react-type-animation';
 
 // Custom styles for react-select (to match MagicBricks)
 const selectStyles = {
@@ -68,10 +69,29 @@ export default function HeroSection() {
     <section className="py-5 text-center bg-white">
       <Container>
         {/* Heading */}
-        <h2 className="fw-medium mb-4">
-          Welcome back! Start your{" "}
-          <span className="fw-bold text-dark">#PataBadloLifeBadlo</span> Journey
-        </h2>
+       <h2 className="fw-medium mb-4 text-center">
+      Welcome back!{" "}
+      <span className="text-primary fw-bold">
+        <TypeAnimation
+          sequence={[
+            "Find Your Dream Home",
+            2000,
+            "Upgrade Your Lifestyle",
+            2000,
+            "Invest in Smart Properties",
+            2000,
+            "Discover Your Perfect Space",
+            2000,
+            "Begin a New Chapter",
+            2000,
+          ]}
+          wrapper="span"
+          speed={50}
+          repeat={Infinity}
+          cursor={true}
+        />
+      </span>
+    </h2>
 
         {/* Tabs */}
         <div className="d-flex justify-content-center flex-wrap gap-3 mb-4">
@@ -79,7 +99,7 @@ export default function HeroSection() {
             <Button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`btn bg-transparent border-0 position-relative fw-medium ${activeTab === tab ? "text-danger" : "text-secondary"
+              className={`btn bg-transparent border-0 position-relative fw-medium ${activeTab === tab ? "text-st" : "text-secondary"
                 }`}
             >
               {tab}
@@ -98,7 +118,7 @@ export default function HeroSection() {
           <Row className="align-items-start g-0">
             {/* Location */}
             <Col lg="3" md="4" sm="12" className="border-end d-flex align-items-center px-3 py-2">
-              <FaMapMarkerAlt className="text-danger me-2" />
+              <FaMapMarkerAlt className="text-st me-2" />
               <Select
                 options={cityOptions}
                 placeholder="Bangalore"
@@ -110,7 +130,7 @@ export default function HeroSection() {
 
             {/* Property Type */}
             <Col lg="3" md="4" sm="12" className="border-end d-flex align-items-center px-3 py-2">
-              <FaHome className="text-danger me-2" />
+              <FaHome className="text-st me-2" />
               <Select
                 options={propertyOptions}
                 placeholder="Flat +9"
@@ -121,7 +141,7 @@ export default function HeroSection() {
 
             {/* Budget */}
             <Col lg="3" md="3" sm="12" className="border-end d-flex align-items-center px-3 py-2">
-              <FaRupeeSign className="text-danger me-2" />
+              <FaRupeeSign className="text-st me-2" />
               <Select
                 options={budgetOptions}
                 placeholder="Budget"

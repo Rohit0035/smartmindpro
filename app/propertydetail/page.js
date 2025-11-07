@@ -59,7 +59,7 @@ const PropertyDetail = () => {
     return (
         <div className="property-detail-page position-relative bg-light py-4">
             {/* ✅ Sticky Product Navbar (hidden by default, shows on scroll) */}
-            {showStickyNav && (
+            {/* {showStickyNav && (
                 <div style={{ zIndex: '11111' }} className=" d-none d-sm-block container sticky-top bg-white ">
                     <Row>
                         <Col xs="12" sm="12" md="12" lg="4">
@@ -94,7 +94,7 @@ const PropertyDetail = () => {
                         </Col>
                     </Row>
                 </div>
-            )}
+            )} */}
             <div className="">
                 <Container>
                     <Row>

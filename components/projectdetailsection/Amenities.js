@@ -20,7 +20,7 @@ import {
   FaRegCommentDots,
 } from "react-icons/fa";
 import { SiSpringsecurity } from "react-icons/si";
-import ProjectAmenitiesOffcanvas from "./ProjectAmenitiesOffcanvas"; 
+import ProjectAmenitiesOffcanvas from "./ProjectAmenitiesOffcanvas";
 
 const Amenities = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -93,7 +93,7 @@ const Amenities = () => {
           <small>Insights you won't find anywhere else</small>
 
           <Row className="py-3">
-            <Col xs="6" sm="6" md="4" lg="3">
+            <Col xs="6" sm="6" md="4" lg="3" className="mb-2">
               <Card className="feature-card card-lift bg-white border-0 text-center h-100 rounded-3 shadow-sm">
                 <Link href="#" className="w-100">
                   <CardBody>
@@ -104,7 +104,7 @@ const Amenities = () => {
               </Card>
             </Col>
 
-            <Col xs="6" sm="6" md="4" lg="3">
+            <Col xs="6" sm="6" md="4" lg="3" className="mb-2">
               <Card className="feature-card card-pulse bg-white border-0 text-center h-100 rounded-3 shadow-sm">
                 <Link href="#" className="w-100">
                   <CardBody>
@@ -115,7 +115,7 @@ const Amenities = () => {
               </Card>
             </Col>
 
-            <Col xs="6" sm="6" md="4" lg="3">
+            <Col xs="6" sm="6" md="4" lg="3" className="mb-2">
               <Card className="feature-card card-rotate bg-white position-relative border-0 text-center h-100 rounded-3 shadow-sm">
                 <Link href="#" className="w-100">
                   <CardBody>
@@ -133,7 +133,7 @@ const Amenities = () => {
               </Card>
             </Col>
 
-            <Col xs="6" sm="6" md="4" lg="3">
+            <Col xs="6" sm="6" md="4" lg="3" className="mb-2">
               <Card className="feature-card card-zoom bg-white border-0 text-center h-100 rounded-3 shadow-sm">
                 <Link href="#" className="w-100">
                   <CardBody>

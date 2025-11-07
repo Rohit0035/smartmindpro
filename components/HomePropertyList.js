@@ -83,7 +83,7 @@ const PopularOwnerProperties = () => {
                     </h4>
                 </Col>
                 <Col className="text-end">
-                    <a href="#" className="text-st fw-semibold text-decoration-none">
+                    <a href="/property" className="text-st fw-semibold text-decoration-none">
                         See all Properties →
                     </a>
                 </Col>
@@ -150,6 +150,7 @@ const PopularOwnerProperties = () => {
                                     )}
                                     <div className="text-center mt-2">
                                         <Button
+                                            href="/propertydetail"
                                             color="danger"
                                             size="sm"
                                             className="rounded-pill btn-danger w-100 "

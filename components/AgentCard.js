@@ -50,6 +50,7 @@ const AgentCard = () => {
 
                 {/* View Profile Button */}
                 <Button
+                     href="/agentdetail"
                     className=" text-white btn-danger rounded-pill fw-semibold w-100 py-2 mt-1 btn-sm"
                 >
                     View Profile

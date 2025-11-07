@@ -103,8 +103,8 @@ const AgentSection = () => {
                         </h4>
                     </Col>
                     <Col className="text-end">
-                        <a href="#" className="text-st fw-semibold text-decoration-none">
-                            See all Properties →
+                        <a href="/agents" className="text-st fw-semibold text-decoration-none">
+                            See all Agents →
                         </a>
                     </Col>
                 </Row>
@@ -201,7 +201,7 @@ const AgentSection = () => {
                                         <Link href={`/agents/${agent.id}`} className="text-st text-decoration-none small">
                                             View Details
                                         </Link>
-                                        <Button color="danger" size="sm" className="rounded-pill px-3">
+                                        <Button href="/propertydetail" color="danger" size="sm" className="rounded-pill px-3">
                                             View Properties
                                         </Button>
                                     </div>

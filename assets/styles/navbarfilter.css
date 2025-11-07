@@ -7,7 +7,7 @@
 }
 
 .filter-navbar .dropdown-toggle:hover {
-  border-color: #ff6a00 !important;
+  border-color: var(--primary) !important;
 }
 
 /* 📱 Bottom Sticky Bar for Mobile */
@@ -27,7 +27,7 @@
 .filter-bottom-icon {
   text-align: center;
   font-size: 1.3rem;
-  color: #dc3545;
+  color: var(--primary);
   flex: 1;
 }
 

@@ -6,6 +6,21 @@ import ImageGrid from "../../components/projectdetailsection/ImageGrid";
 import ProjectDetailInfo from "../../components/projectdetailsection/ProjectDetailInfo";
 import Amenities from "../../components/projectdetailsection/Amenities";
 import ProjectAbout from "../../components/projectdetailsection/ProjectAbout";
+import Ratings from "../../components/projectdetailsection/Ratings";
+import AdsFullBanner from "../../components/projectdetailsection/AdsFullBanner";
+import NearbySection from "../../components/projectdetailsection/NearbySection";
+import NewLaunchesSection from "../../components/projectdetailsection/NewLaunchesSection";
+import LegalCertificates from "../../components/projectdetailsection/LegalCertificates";
+import PropWorthInsights from "../../components/projectdetailsection/PropWorthInsights";
+import HomeLoanEMICalculator from "../../components/projectdetailsection/HomeLoanEMICalculator";
+import PropertyGallery from "../../components/projectdetailsection/PropertyGallery";
+import AboutWhitefield from "../../components/projectdetailsection/AboutWhitefield";
+import AboutCompanyProject from "../../components/projectdetailsection/AboutCompanyProject";
+import TopAdvertis from "../../components/projectdetailsection/TopAdvertis";
+import SimilarProjects from "../../components/projectdetailsection/SimilarProjects";
+import OtherProjects from "../../components/projectdetailsection/OtherProjects";
+import FaqSection from "../../components/projectdetailsection/FaqSection";
+import PopularStories from "../../components/projectdetailsection/PopularStories";
 const ProjectDetail = () => {
     const [showStickyNav, setShowStickyNav] = useState(false);
 
@@ -21,7 +36,7 @@ const ProjectDetail = () => {
         <>
             <BreadcrumbNav />
 
-            {showStickyNav && (
+            {/* {showStickyNav && (
                 <div style={{ zIndex: '11111' }} className=" d-none d-sm-block container sticky-top bg-white ">
                     <Row>
                         <Col xs="12" sm="12" md="12" lg="12">
@@ -45,7 +60,7 @@ const ProjectDetail = () => {
                         </Col>
                     </Row>
                 </div>
-            )}
+            )} */}
 
             <ImageGrid />
 
@@ -59,7 +74,23 @@ const ProjectDetail = () => {
                             >
                                 <ProjectDetailInfo />
                                 <Amenities />
-                                <ProjectAbout/>
+                                <ProjectAbout />
+                                <Ratings />
+                                <AdsFullBanner />
+                                <NearbySection />
+                                <NewLaunchesSection />
+                                <LegalCertificates />
+                                <PropWorthInsights />
+                                <HomeLoanEMICalculator />
+                                <PropertyGallery />
+                                <AboutWhitefield />
+                                <AboutCompanyProject />
+                                <TopAdvertis />
+                                <AdsFullBanner />
+                                <SimilarProjects />
+                                <OtherProjects/>
+                                <FaqSection/>
+                                <PopularStories/>
                             </div>
                         </Col>
 
@@ -112,7 +143,7 @@ const ProjectDetail = () => {
                                             </div>
 
                                             <Button
-                                                
+
                                                 block
                                                 className="py-2 fw-bold btn-danger btn-sm rounded-pill"
                                             >

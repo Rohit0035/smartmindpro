@@ -19,13 +19,14 @@ import {
   FaArrowLeft,
   FaTimes,
   FaChevronRight,
-FaMapMarkerAlt  
+  FaMapMarkerAlt
 } from "react-icons/fa";
 import "../assets/styles/navbar.css";
 
 import menuData from "./menuData"; // ✅ Import dynamic menu data
 import CityPopup from "./CityPopup";
-
+import Image from "next/image";
+import logo from "../assets/images/logo.png"
 export default function MainNavbar() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
@@ -57,7 +58,7 @@ export default function MainNavbar() {
   return (
     <>
       {/* === Top Header === */}
-      <div className="top-header py-1 border-bottom">
+      {/* <div className="top-header py-1 border-bottom">
         <div className="container small text-muted">
           <div className="row">
             <div className="col-8">
@@ -65,10 +66,10 @@ export default function MainNavbar() {
                 <NavbarBrand href="/" className="fw-bold text-white fs-3">
                   SmartMind
                 </NavbarBrand>
-                <span className="" style={{marginTop:'12px'}}>
+                <span className="" style={{ marginTop: '12px' }}>
                   <a href="#" onClick={toggleModal} className="text-white ms-4" >
-                     <FaMapMarkerAlt size={14}  />
-                     <span className="small ms-1 ">Bangalore</span>
+                    <FaMapMarkerAlt size={14} />
+                    <span className="small ms-1 ">Bangalore</span>
                   </a>
                 </span>
               </div>
@@ -79,7 +80,11 @@ export default function MainNavbar() {
                   <DropdownToggle caret color="transparent" className="text-white me-2">
                     Login
                   </DropdownToggle>
-                  <DropdownMenu style={{zIndex:'9999'}}>
+                  <DropdownMenu style={{ zIndex: '9999' }}>
+                    <DropdownItem href="/signup">Sign Up</DropdownItem>
+                    <DropdownItem href="/signin">Sign In</DropdownItem>
+                  </DropdownMenu>
+                  <DropdownMenu style={{ zIndex: '9999' }} className="d-none">
                     <DropdownItem>Profile</DropdownItem>
                     <DropdownItem>Settings</DropdownItem>
                     <DropdownItem divider />
@@ -93,16 +98,45 @@ export default function MainNavbar() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* === Main Navbar === */}
       <Navbar expand="lg" className="smart-navbar bg-white shadow-sm py-2">
         <div className="container">
-          <div className="d-flex container align-items-center justify-content-between px-0">
+          <div className="d-flex  align-items-center justify-content-between px-0">
             {/* === Mobile Toggle === */}
             <div className="d-flex align-items-center">
+              <NavbarBrand href="/" className="fw-bold text-white fs-3 d-lg-none">
+                <Image src={logo} alt="smartmind" className="st-logo" />
+              </NavbarBrand>
+              <span className="d-lg-none" style={{ marginTop: '0px' }}>
+                <a href="#" onClick={toggleModal} className="text-st ms-2 me-3" >
+                  <FaMapMarkerAlt size={20} />
+                  <span className="small ms-1 d-none">Bangalore</span>
+                </a>
+              </span>
+              <div className="ms-auto right-grid d-flex justify-content-end d-lg-none">
+                <UncontrolledDropdown>
+                  <DropdownToggle caret color="primary" className="rounded-pill btn-danger w-100  btn btn-danger btn-sm px-4 ">
+                    Login
+                  </DropdownToggle>
+                  <DropdownMenu style={{ zIndex: '9999' }}>
+                    <DropdownItem href="/signup">Sign Up</DropdownItem>
+                    <DropdownItem href="/signin">Sign In</DropdownItem>
+                  </DropdownMenu>
+                  <DropdownMenu style={{ zIndex: '9999' }} className="d-none">
+                    <DropdownItem>Profile</DropdownItem>
+                    <DropdownItem>Settings</DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>Log out</DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+                <button className=" ms-2 btn btn-light btn-sm sm-2 px-4 fw-bold d-none d-sm-block" style={{ borderRadius: '100px' }}>
+                  Post Property
+                </button>
+              </div>
               <button
-                className="btn btn-link text-dark d-lg-none fs-4 me-2"
+                className="btn btn-link text-dark d-lg-none fs-5 "
                 onClick={toggleSidebar}
               >
                 <FaBars />
@@ -111,7 +145,16 @@ export default function MainNavbar() {
 
             {/* === Desktop Menu === */}
             <Collapse isOpen={true} navbar className="d-none d-lg-flex">
-              <Nav className="align-items-center" navbar>
+              <NavbarBrand href="/" className="fw-bold text-white fs-3">
+                <Image src={logo} alt="smartmind" className="st-logo" />
+              </NavbarBrand>
+              <span className="" style={{ marginTop: '0px' }}>
+                <a href="#" onClick={toggleModal} className="text-st ms-2" >
+                  <FaMapMarkerAlt size={14} />
+                  <span className="small ms-1 ">Bangalore</span>
+                </a>
+              </span>
+              <Nav className="align-items-center ms-4" navbar>
                 {menuData.map((menu) => (
                   <NavItem key={menu.name} className="smart-megamenu-parent">
                     <Link
@@ -128,7 +171,7 @@ export default function MainNavbar() {
                         <div className="row g-4">
                           {menu.submenu.map((sub, i) => (
                             <div key={i} className="col">
-                              <h6 className="fw-bold text-muted mb-2">
+                              <h6 className="fw-bold text-st mb-2">
                                 {sub.title}
                               </h6>
                               <ul className="list-unstyled small">
@@ -151,6 +194,27 @@ export default function MainNavbar() {
                   </NavItem>
                 ))}
               </Nav>
+
+              <div className="ms-auto right-grid d-flex justify-content-end">
+                <UncontrolledDropdown>
+                  <DropdownToggle caret color="primary" className="rounded-pill btn-danger w-100  btn btn-danger btn-sm px-4 ">
+                    Login
+                  </DropdownToggle>
+                  <DropdownMenu style={{ zIndex: '9999' }}>
+                    <DropdownItem href="/signup">Sign Up</DropdownItem>
+                    <DropdownItem href="/signin">Sign In</DropdownItem>
+                  </DropdownMenu>
+                  <DropdownMenu style={{ zIndex: '9999' }} className="d-none">
+                    <DropdownItem>Profile</DropdownItem>
+                    <DropdownItem>Settings</DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>Log out</DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+                <button className=" ms-2 btn btn-light btn-sm sm-2 px-4 fw-bold d-none d-sm-block" style={{ borderRadius: '100px' }}>
+                  Post Property
+                </button>
+              </div>
             </Collapse>
           </div>
         </div>

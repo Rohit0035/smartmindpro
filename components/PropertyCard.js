@@ -69,7 +69,7 @@ const PropertyCard = () => {
                     <Col sm="12" md="12" lg="6">
                         <Card className="p-2 border-0">
                             <div className="d-flex justify-content-between align-items-start flex-wrap">
-                                <Link href="/">
+                                <Link href="/propertydetail">
                                     <h6 className="text-dark mb-1">
                                         3 BHK Flat for Rent in Thanisandra, Bangalore
                                         <span style={{ float: "right" }}>

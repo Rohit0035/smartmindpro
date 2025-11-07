@@ -84,7 +84,7 @@ const ProjectCard = () => {
                 <Row className="align-items-center">
                     {/* Left: Project Image */}
                     <Col lg="3" md="12" className="mt-0  mb-2">
-                        <Link href="#" className="text-dark mt-0">
+                        <Link href="/projectdetail" className="text-dark mt-0">
                             <div className="position-relative rounded-3 overflow-hidden">
                                 <Image
                                     src={proimg}

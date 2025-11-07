@@ -70,7 +70,7 @@ const FreshProperties = () => {
             <Row className="align-items-center mb-3">
                 <Col>
                     <h4 className="fw-bold">
-                       Fresh Properties in Bangalore
+                        Fresh Properties in Bangalore
                         <span
                             style={{
                                 display: "block",
@@ -83,7 +83,7 @@ const FreshProperties = () => {
                     </h4>
                 </Col>
                 <Col className="text-end">
-                    <a href="#" className="text-st fw-semibold text-decoration-none">
+                    <a href="/property" className="text-st fw-semibold text-decoration-none">
                         See all Properties →
                     </a>
                 </Col>
@@ -150,6 +150,7 @@ const FreshProperties = () => {
                                     )}
                                     <div className="text-center mt-2">
                                         <Button
+                                            href="/propertydetial"
                                             color="danger"
                                             size="sm"
                                             className="rounded-pill btn-danger w-100 "

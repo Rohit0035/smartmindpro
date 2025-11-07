@@ -26,7 +26,7 @@ const AboutAgent = () => {
         <CardBody>
           <p >
             Maisai Realty is a dynamic real estate firm dedicated to helping
-            clients find their perfect property. Whether you're buying, selling,
+            clients find their perfect property. Whether you,re buying, selling,
             or investing, our expert team combines market insight with
             personalized service to ensure a smooth and successful experience.
             At Maisai, we make your real estate journey our top priority.
@@ -40,8 +40,8 @@ const AboutAgent = () => {
             <Col md="6">
               <strong>Address</strong>
               <p className="mb-0 small">
-                457, 1st floor, 7th cross, 5th Main, Dollars Colony, RMV 2nd
-                Stage, 560094
+                457 1st floor 7th cross 5th Main Dollars Colony RMV 2nd
+                Stage 560094
               </p>
             </Col>
           </Row>

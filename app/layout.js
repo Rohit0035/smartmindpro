@@ -1,12 +1,12 @@
+// app/layout.js
 import "../assets/styles/globals.css";
+import "../assets/styles/custom.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "yet-another-react-lightbox/styles.css";
-import Footer from "../components/Footer";
-import AOSWrapper from "../components/AOSWrapper";
-import MainNavbar from "../components/MainNavbar";
+import ClientLayout from "./ClientLayout"; 
 
 export const metadata = {
   title: "SmartMind",
@@ -16,13 +16,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      
       <body>
-        <MainNavbar />
-        <AOSWrapper>
-          <main>{children}</main>
-        </AOSWrapper>
-        <Footer />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

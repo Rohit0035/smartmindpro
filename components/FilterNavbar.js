@@ -126,12 +126,12 @@ const FilterNavbar = () => {
     <>
       {/*Desktop Navbar */}
       <div
-        className="filter-navbar sticky-top shadow-sm  d-none d-md-block mb-3"
+        className="filter-navbar  shadow-sm  d-none d-md-block mb-3"
         style={{
           color: "white",
           padding: "6px 0",
           zIndex: 1050,
-          backgroundColor:'#6e2e36'
+          backgroundColor:'#0d55a3'
         }}
       >
         <Container>

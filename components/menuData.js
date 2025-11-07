@@ -43,8 +43,8 @@ const menuData = [
     path: "/sell",
   },
   {
-    name: "Home Loans",
-    path: "/home-loans",
+    name: "Our Projects",
+    path: "/projects",
   },
   {
     name: "Home Interiors",
