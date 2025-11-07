@@ -159,6 +159,11 @@ img {
     background-color: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
 }
+.btn-danger:hover {
+    background-color: #0dcaf0 !important;
+    border-color: #0dcaf0 !important;
+    color: #fff !important;
+}
 .text-st {
   color: var(--primary-color) !important;
 }

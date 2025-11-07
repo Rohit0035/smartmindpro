@@ -15,6 +15,7 @@ import { FaEnvelope, FaSyncAlt } from "react-icons/fa";
 import Image from "next/image";
 import authimg from "../../assets/images/auth-img.jpg";
 import Link from "next/link";
+import logo from "../../assets/images/logo.png"
 
 const ForgotPassword = () => {
     return (
@@ -62,7 +63,9 @@ const ForgotPassword = () => {
                     {/* Right Side Form */}
                     <Col md="6" xs="12" className="bg-white">
                         <CardBody className="p-4">
-                            <h4 className="fw-bold mb-2 text-center bg-light py-2">SmartMind</h4>
+                            <div className="text-center mb-3">
+                                <Image src={logo} alt="logo" className="st-logo ms-auto me-auto" />
+                            </div>
                             <div className="d-flex justify-content-between">
                                 <h5 className="mb-0 fw-bold">Forgot Password</h5>
                                 <Link href="/" className="text-st fw-bold">
