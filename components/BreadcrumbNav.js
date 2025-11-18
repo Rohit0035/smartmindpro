@@ -20,7 +20,7 @@ const BreadcrumbNav = () => {
                 {isLast ? (
                     label
                 ) : (
-                    <Link href={href} className="text-decoration-none text-danger fw-semibold">
+                    <Link href={href} className="text-decoration-none text-st fw-semibold">
                         {label}
                     </Link>
                 )}
@@ -33,7 +33,7 @@ const BreadcrumbNav = () => {
             <Container>
                 <Breadcrumb >
                     <BreadcrumbItem>
-                        <Link href="/" className="text-danger fw-semibold text-decoration-none">
+                        <Link href="/" className="text-st fw-semibold text-decoration-none">
                             <FaHome className="me-1" /> Home
                         </Link>
                     </BreadcrumbItem>

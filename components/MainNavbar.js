@@ -103,9 +103,9 @@ export default function MainNavbar() {
       {/* === Main Navbar === */}
       <Navbar expand="lg" className="smart-navbar bg-white shadow-sm py-2">
         <div className="container">
-          <div className="d-flex  align-items-center justify-content-between px-0">
+          <div className="">
             {/* === Mobile Toggle === */}
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center w-100">
               <NavbarBrand href="/" className="fw-bold text-white fs-3 d-lg-none">
                 <Image src={logo} alt="smartmind" className="st-logo" />
               </NavbarBrand>
@@ -120,15 +120,14 @@ export default function MainNavbar() {
                   <DropdownToggle caret color="primary" className="rounded-pill btn-danger w-100  btn btn-danger btn-sm px-4 ">
                     Login
                   </DropdownToggle>
-                  <DropdownMenu style={{ zIndex: '9999' }}>
-                    <DropdownItem href="/signup">Sign Up</DropdownItem>
-                    <DropdownItem href="/signin">Sign In</DropdownItem>
-                  </DropdownMenu>
-                  <DropdownMenu style={{ zIndex: '9999' }} className="d-none">
-                    <DropdownItem>Profile</DropdownItem>
-                    <DropdownItem>Settings</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>Log out</DropdownItem>
+                  <DropdownMenu style={{ zIndex: '9999 !important', position: 'absolute !important' }}>
+                    <DropdownItem tag={Link} href="/signup">
+                      Sign Up
+                    </DropdownItem>
+
+                    <DropdownItem tag={Link} href="/signin">
+                      Sign In
+                    </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
                 <button className=" ms-2 btn btn-light btn-sm sm-2 px-4 fw-bold d-none d-sm-block" style={{ borderRadius: '100px' }}>
@@ -200,16 +199,22 @@ export default function MainNavbar() {
                   <DropdownToggle caret color="primary" className="rounded-pill btn-danger w-100  btn btn-danger btn-sm px-4 ">
                     Login
                   </DropdownToggle>
-                  <DropdownMenu style={{ zIndex: '9999' }}>
-                    <DropdownItem href="/signup">Sign Up</DropdownItem>
-                    <DropdownItem href="/signin">Sign In</DropdownItem>
+                  <DropdownMenu style={{ zIndex: '9999 !important', position: 'absolute !important' }}>
+                    <DropdownItem tag={Link} href="/signup">
+                      Sign Up
+                    </DropdownItem>
+
+                    <DropdownItem tag={Link} href="/signin">
+                      Sign In
+                    </DropdownItem>
                   </DropdownMenu>
-                  <DropdownMenu style={{ zIndex: '9999' }} className="d-none">
+
+                  {/* <DropdownMenu style={{ zIndex: '9999' }} className="d-none">
                     <DropdownItem>Profile</DropdownItem>
                     <DropdownItem>Settings</DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem>Log out</DropdownItem>
-                  </DropdownMenu>
+                  </DropdownMenu> */}
                 </UncontrolledDropdown>
                 <button className=" ms-2 btn btn-light btn-sm sm-2 px-4 fw-bold d-none d-sm-block" style={{ borderRadius: '100px' }}>
                   Post Property

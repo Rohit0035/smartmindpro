@@ -13,6 +13,7 @@ import HomeSnapshot from "../../components/HomeSnapshot";
 import HomePropertyOptions from "../../components/HomePropertyOptions";
 import RecommendedSection from "../../components/RecommendedSection";
 import AgentSection from "../../components/AgentSection";
+import BottomNav from "../../components/bottomnav/FilterMobile";
 
 export default function HomeIndex() {
   return (
@@ -30,6 +31,7 @@ export default function HomeIndex() {
        <HomeSnapshot/>
        <HomePropertyOptions/>
        <RecommendedSection/>
+       <BottomNav/>
     </>
   );
 }
