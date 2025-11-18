@@ -109,7 +109,7 @@ const Footer = () => {
           {/* Bottom Footer */}
           <div className="text-center text-muted small">
             <div className="d-flex flex-wrap justify-content-center gap-3 mb-2">
-              <Link href="/sitemap" className="text-muted text-decoration-none">Sitemap</Link>
+              <Link href="/sitemaps" className="text-muted text-decoration-none">Sitemap</Link>
               <Link href="/terms-conditions" className="text-muted text-decoration-none">Terms & Conditions</Link>
               <Link href="/privacy-policy" className="text-muted text-decoration-none">Privacy Policy</Link>
               <Link href="/whistle-blower-policy" className="text-muted text-decoration-none">Whistle Blower Policy</Link>
@@ -118,7 +118,7 @@ const Footer = () => {
               <Link href="/testimonials" className="text-muted text-decoration-none">Testimonials</Link>
               {/* <Link href="/unsubscribe" className="text-muted text-decoration-none">Unsubscribe</Link> */}
               {/* <Link href="/help-center" className="text-muted text-decoration-none">Help Center</Link> */}
-              <Link href="/sales-enquiry" className="text-muted text-decoration-none">Sales Enquiry</Link>
+              <Link href="/branchoffices" className="text-muted text-decoration-none">Sales Enquiry</Link>
               {/* <Link href="/buy-services" className="text-muted text-decoration-none">Buy Services</Link> */}
               <Link href="/blogcategory" className="text-muted text-decoration-none">News</Link>
             </div>

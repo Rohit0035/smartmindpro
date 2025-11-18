@@ -62,7 +62,6 @@ const Sitemap = () => {
   return (
     <section className="py-4">
       <Container>
-
         {/* Top Row */}
         <Row className="align-items-center mb-3">
           <Col xs="auto">
@@ -75,6 +74,24 @@ const Sitemap = () => {
               value={selectedFilter}
               onChange={(v) => setSelectedFilter(v)}
               classNamePrefix="react-select"
+              menuPortalTarget={
+                typeof window !== "undefined" ? document.body : null
+              } // ← FIXED (SSR SAFE)
+              styles={{
+                control: (base, state) => ({
+                  ...base,
+                  backgroundColor: "#fff",
+                  borderColor: state.isFocused ? "#0d6efd" : "#ced4da",
+                  boxShadow: state.isFocused
+                    ? "0 0 0 0.15rem rgba(13,110,253,.25)"
+                    : "none",
+                  borderRadius: "6px",
+                  minHeight: "44px",
+                  height: "44px",
+                  cursor: "pointer",
+                  "&:hover": { borderColor: "#0d6efd" },
+                }),
+              }}
             />
           </Col>
         </Row>
@@ -90,10 +107,7 @@ const Sitemap = () => {
           className="py-2"
         >
           {cities.map((city) => (
-            <SwiperSlide
-              key={city}
-              style={{ width: "auto" }}
-            >
+            <SwiperSlide key={city} style={{ width: "auto" }}>
               <div
                 onClick={() => setActiveCity(city)}
                 className={`px-2 pb-1 cursor-pointer ${
@@ -101,7 +115,9 @@ const Sitemap = () => {
                 }`}
                 style={{
                   borderBottom:
-                    activeCity === city ? "2px solid red" : "2px solid transparent",
+                    activeCity === city
+                      ? "2px solid red"
+                      : "2px solid transparent",
                 }}
               >
                 {city}
@@ -112,14 +128,17 @@ const Sitemap = () => {
 
         {/* Bottom Grid */}
         <h4 className="fw-bold mt-4 mb-3">Residential</h4>
-
         <Row>
           {Object.entries(sitemapData.Residential).map(([title, items]) => (
             <Col md="3" key={title} className="mb-4" data-aos="zoom-in">
               <h6 className="fw-bold mb-2">{title}</h6>
 
               {items.map((item, idx) => (
-                <p key={idx} className="mb-1 text-muted" style={{ cursor: "pointer" }}>
+                <p
+                  key={idx}
+                  className="mb-1 text-muted"
+                  style={{ cursor: "pointer" }}
+                >
                   {item}
                 </p>
               ))}
