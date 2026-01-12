@@ -258,6 +258,10 @@ img {
   animation: slideUp 0.6s ease-out;
 }
 
+.accordion {
+  --bs-accordion-border-color: unset !important;
+}
+
 
 /*--------------------------------------
   Responsive Typography

@@ -58,47 +58,19 @@ export default function MainNavbar() {
   return (
     <>
       {/* === Top Header === */}
-      {/* <div className="top-header py-1 border-bottom">
+      <div className="top-header border-bottom" style={{padding:'14px 0px'}}>
         <div className="container small text-muted">
           <div className="row">
-            <div className="col-8">
-              <div className="left-grid d-flex ">
-                <NavbarBrand href="/" className="fw-bold text-white fs-3">
-                  SmartMind
-                </NavbarBrand>
-                <span className="" style={{ marginTop: '12px' }}>
-                  <a href="#" onClick={toggleModal} className="text-white ms-4" >
-                    <FaMapMarkerAlt size={14} />
-                    <span className="small ms-1 ">Bangalore</span>
-                  </a>
-                </span>
-              </div>
-            </div>
-            <div className="col-4">
-              <div className="right-grid d-flex justify-content-end">
-                <UncontrolledDropdown>
-                  <DropdownToggle caret color="transparent" className="text-white me-2">
-                    Login
-                  </DropdownToggle>
-                  <DropdownMenu style={{ zIndex: '9999' }}>
-                    <DropdownItem href="/signup">Sign Up</DropdownItem>
-                    <DropdownItem href="/signin">Sign In</DropdownItem>
-                  </DropdownMenu>
-                  <DropdownMenu style={{ zIndex: '9999' }} className="d-none">
-                    <DropdownItem>Profile</DropdownItem>
-                    <DropdownItem>Settings</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>Log out</DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-                <button className="btn btn-light btn-sm sm-2 px-4 fw-bold d-none d-sm-block" style={{ borderRadius: '100px' }}>
-                  Post Property
-                </button>
-              </div>
-            </div>
+            <marquee className="text-white fw-bold" behavior="scroll" direction="left" scrollamount="5">
+              SmartMind – Your Trusted Real Estate Partner | Buy • Sell • Rent Properties | Verified Listings | 0%
+              Brokerage Options |
+              Best Deals on Apartments & Villas | Assured Property Guidance | Premium Locality Insights |
+              Expert Real Estate Advisors | Transparent Pricing | Smart Property Search |
+              Trusted by Thousands of Home Buyers | Fastest-Growing Real Estate Platform |
+            </marquee>
           </div>
         </div>
-      </div> */}
+      </div>
 
       {/* === Main Navbar === */}
       <Navbar expand="lg" className="smart-navbar bg-white shadow-sm py-2">

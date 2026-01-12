@@ -9,51 +9,73 @@ const menuData = [
       {
         title: "Popular Choices",
         items: [
-          { label: "Ready to Move", path: "/buy/ready-to-move" },
-          { label: "Owner Properties", path: "/buy/owner-properties" },
-          { label: "Budget Homes", path: "/buy/budget-homes" },
-          { label: "Premium Homes", path: "/buy/premium-homes" },
-          { label: "Magic Homes", path: "/buy/magic-homes" },
+          { label: "Ready to Move", path: "/property" },
+          { label: "Owner Properties", path: "/property" },
+          { label: "Budget Homes", path: "/property" },
+          { label: "Premium Homes", path: "/property" },
+          { label: "Magic Homes", path: "/property" },
         ],
       },
       {
         title: "Property Type",
         items: [
-          { label: "Flats", path: "/buy/flats" },
-          { label: "Villas", path: "/buy/villas" },
-          { label: "Plots", path: "/buy/plots" },
+          { label: "Flats", path: "/property" },
+          { label: "Villas", path: "/property" },
+          { label: "Plots", path: "/property" },
         ],
       },
       {
         title: "Budget Range",
         items: [
-          { label: "Under ₹50L", path: "/buy/budget/under-50l" },
-          { label: "₹50L–₹1Cr", path: "/buy/budget/50l-1cr" },
-          { label: "₹1Cr–₹1.5Cr", path: "/buy/budget/1cr-1-5cr" },
+          { label: "Under ₹50L", path: "/property" },
+          { label: "₹50L–₹1Cr", path: "/property" },
+          { label: "₹1Cr–₹1.5Cr", path: "/property" },
         ],
       },
+      {
+        title: "Explore",
+        items: [
+          { label: "Localities in Indore", path: "/property" },
+          { label: "Projects in Indore", path: "/projects" },
+          { label: "Find an Agent", path: "/agents" },
+          { label: "Home Interiors in Indore", path: "/" },
+          
+        ],
+      },
+        {
+        title: "Buying Tools",
+        items: [
+          { label: "Localities in Indore", path: "/property" },
+          { label: "Projects in Indore", path: "/projects" },
+          { label: "Find an Agent", path: "/agents" },
+          { label: "Home Interiors in Indore", path: "/" },
+          
+        ],
+      },
+      
     ],
   },
   {
     name: "Rent",
-    path: "/rent",
+    path: "/property",
   },
   {
     name: "Sell",
-    path: "/sell",
+    path: "/property",
   },
   {
     name: "Our Projects",
     path: "/projects",
   },
   {
-    name: "Home Interiors",
-    path: "/home-interiors",
+    name: "Home Loans",
+    path: "/loan",
   },
   {
-    name: "MB Advice",
-    path: "/advice",
+    name: "Home Interiors",
+    path: "/property",
   },
+
 ];
 
 export default menuData;

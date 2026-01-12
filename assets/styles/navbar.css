@@ -25,7 +25,8 @@
   position: absolute;
   top: 100%;
   left: 0;
-  width: 660px;
+  /* width: 660px; */
+  width: max-content;
   background: #fff;
   border-top: 3px solid #0d55a3;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
