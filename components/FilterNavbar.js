@@ -126,12 +126,14 @@ const FilterNavbar = () => {
     <>
       {/*Desktop Navbar */}
       <div
-        className="filter-navbar  shadow-sm  d-none d-md-block mb-3"
+        className="filter-navbar shadow-sm  d-none d-md-block mb-3"
         style={{
           color: "white",
           padding: "6px 0",
           zIndex: 1050,
-          backgroundColor:'#0d55a3'
+          position: "sticky",
+          top: "4.5rem",
+          backgroundColor: '#0d55a3'
         }}
       >
         <Container>
@@ -140,7 +142,7 @@ const FilterNavbar = () => {
               <Nav className="d-flex flex-wrap">
                 {[
                   { key: "location", icon: <FaMapMarkerAlt size={14} />, label: "Location" },
-                  { key: "budget", icon: <FaRupeeSign size={14}/>, label: "Budget" },
+                  { key: "budget", icon: <FaRupeeSign size={14} />, label: "Budget" },
                   { key: "bhk", icon: <FaHome size={14} />, label: "BHK" },
                   { key: "property", icon: <FaBuilding size={14} />, label: "Property Type" },
                   { key: "furnishing", icon: <FaCouch size={14} />, label: "Furnishing" },
@@ -162,7 +164,7 @@ const FilterNavbar = () => {
                       <DropdownMenu className="p-3" style={{ minWidth: "250px" }}>
                         <Select
                           isMulti
-                          options={getSelectOptions(item.key)} 
+                          options={getSelectOptions(item.key)}
                           placeholder={`Select ${item.label}`}
                         />
                       </DropdownMenu>
@@ -209,7 +211,7 @@ const FilterNavbar = () => {
           </div>
           <Select
             isMulti
-            options={getSelectOptions(modal.type)} 
+            options={getSelectOptions(modal.type)}
             placeholder={getTitle()}
             className="mb-3"
           />

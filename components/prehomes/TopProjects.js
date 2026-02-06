@@ -5,8 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { FaArrowLeft, FaArrowRight, FaRegImage } from "react-icons/fa";
 import Image from "next/image";
-import proimg from "../assets/images/pro-1.jpg";
-const FreshProperties = () => {
+import proimg from "../../assets/images/pro-1.jpg";
+const TopProjects = () => {
     const swiperRef = useRef(null);
 
     // Dummy property data
@@ -70,7 +70,7 @@ const FreshProperties = () => {
             <Row className="align-items-center mb-3">
                 <Col>
                     <h4 className="fw-bold">
-                        Fresh Properties in Bangalore
+                        Top Projects
                         <span
                             style={{
                                 display: "block",
@@ -83,8 +83,8 @@ const FreshProperties = () => {
                     </h4>
                 </Col>
                 <Col className="text-end">
-                    <a href="/property" className="text-st fw-semibold text-decoration-none">
-                        See all Properties →
+                    <a href="/projects" className="text-st fw-semibold text-decoration-none">
+                        See all →
                     </a>
                 </Col>
             </Row>
@@ -151,7 +151,7 @@ const FreshProperties = () => {
                                     )}
                                     <div className="text-center mt-2">
                                         <Button
-                                            href="/propertydetial"
+                                            href="/projectdetail"
                                             color="danger"
                                             size="sm"
                                             className="rounded-pill btn-danger w-100 "
@@ -170,4 +170,4 @@ const FreshProperties = () => {
     );
 };
 
-export default FreshProperties;
+export default TopProjects;

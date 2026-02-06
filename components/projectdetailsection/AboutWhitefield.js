@@ -21,7 +21,7 @@ const AboutWhitefield = () => {
     const [videoOpen, setVideoOpen] = useState(false);
 
     return (
-        <section className="pt-0">
+        <section className="pt-0" id="aboutlocality">
             <Card className="border-0 shadow-sm bg-light" data-aos="fade-up">
                 <CardBody>
                     {/* Header */}

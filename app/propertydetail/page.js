@@ -40,6 +40,7 @@ import ProAgentsList from "../../components/propertydsection/ProAgentsList";
 import ProTools from "../../components/propertydsection/ProTools";
 import ProCloserSearch from "../../components/propertydsection/ProCloserSearch";
 import dynamic from "next/dynamic";
+import PropertyStickyNav from "../../components/propertydsection/PropertyStickyNav";
 const NearbyLandmarkMap = dynamic(
     () => import("../../components/propertydsection/NearbyLandmarkMap"),
     { ssr: false }
@@ -59,42 +60,8 @@ const PropertyDetail = () => {
     return (
         <div className="property-detail-page position-relative bg-light py-4">
             {/* ✅ Sticky Product Navbar (hidden by default, shows on scroll) */}
-            {/* {showStickyNav && (
-                <div style={{ zIndex: '11111' }} className=" d-none d-sm-block container sticky-top bg-white ">
-                    <Row>
-                        <Col xs="12" sm="12" md="12" lg="4">
-                            <h6 className="mb-0 fw-bold st-txt-o mt-3">₹3.3 Lac | 4 BHK - Whitefield, Bangalore</h6>
-                        </Col>
-                        <Col xs="12" sm="12" md="12" lg="4">
-                            <Nav className=" mb-1 small mt-2 ">
-                                <NavItem>
-                                    <NavLink href="#Overview" className="text-dark fw-semibold me-2 px-2">
-                                        Overview
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink href="#moredetails" className="text-dark fw-semibold me-2 px-2">
-                                        More Details
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink href="#aboutlocality" className="text-dark fw-semibold px-2">
-                                        About Locality
-                                    </NavLink>
-                                </NavItem>
-                            </Nav>
-                        </Col>
-                        <Col xs="12" sm="12" md="12" lg="4">
-                            <div className="text-end mt-2 mb-1">
-                                <Button color="danger" className="rounded-pill px-3 py-1 ">
-                                    Contact Agent
-                                </Button>
-                            </div>
-
-                        </Col>
-                    </Row>
-                </div>
-            )} */}
+          
+            <PropertyStickyNav/>
             <div className="">
                 <Container>
                     <Row>

@@ -48,69 +48,72 @@ const SimilarProjects = () => {
 
     return (
         <>
-            <Card className="mt-5 bg-light border-0" data-aos="fade-up">
-                <CardBody>
-                    <h6 className="text-muted mb-0">If you like Nandi Meraki,</h6>
-                    <h4 className="fw-bold">
-                        <span className="text-st">Don’t miss</span> these similar projects{" "}
-                        <span className="badge bg-light text-st border ms-1">SmartMind</span>
-                    </h4>
+            <section className="pt-0 pb-0" id="similarprojects">
+                <Card className="mt-5 bg-light border-0" data-aos="fade-up">
+                    <CardBody>
+                        <h6 className="text-muted mb-0">If you like Nandi Meraki,</h6>
+                        <h4 className="fw-bold">
+                            <span className="text-st">Don’t miss</span> these similar projects{" "}
+                            <span className="badge bg-light text-st border ms-1">SmartMind</span>
+                        </h4>
 
-                    <Swiper
-                        modules={[Navigation]}
-                        spaceBetween={20}
-                        slidesPerView={3}
-                        loop={true}
-                        navigation
-                        breakpoints={{
-                            0: {
-                                slidesPerView: 1,
-                            },
-                            768: {
-                                slidesPerView: 2,
-                            },
-                            1024: {
-                                slidesPerView: 3,
-                            },
-                        }}
-                    >
-                        {projects.map((p) => (
-                            <SwiperSlide key={p.id}>
-                                <div className="position-relative overflow-hidden rounded shadow-sm" style={{ cursor: "pointer" }}>
-                                    <Image
-                                        src={p.img}
-                                        alt={p.name}
-                                        className="w-100"
-                                        style={{ height: "250px", objectFit: "cover" }}
-                                    />
+                        <Swiper
+                            modules={[Navigation]}
+                            spaceBetween={20}
+                            slidesPerView={3}
+                            loop={true}
+                            navigation
+                            breakpoints={{
+                                0: {
+                                    slidesPerView: 1,
+                                },
+                                768: {
+                                    slidesPerView: 2,
+                                },
+                                1024: {
+                                    slidesPerView: 3,
+                                },
+                            }}
+                        >
+                            {projects.map((p) => (
+                                <SwiperSlide key={p.id}>
+                                    <div className="position-relative overflow-hidden rounded shadow-sm" style={{ cursor: "pointer" }}>
+                                        <Image
+                                            src={p.img}
+                                            alt={p.name}
+                                            className="w-100"
+                                            style={{ height: "250px", objectFit: "cover" }}
+                                        />
 
-                                    {/* Overlay Content */}
-                                    <div
-                                        className="position-absolute bottom-0 start-0 w-100 text-white p-3"
-                                        style={{
-                                            background:
-                                                "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%)",
-                                        }}
-                                    >
-                                        <p className="mb-1 fw-semibold text-white">{p.price}</p>
-                                        <h6 className="mb-1">{p.name}</h6>
-                                        <small className="text-light d-block">
-                                            {p.location} <br /> {p.bhk}
-                                        </small>
-                                        <Button
-                                            color="danger"
-                                            className="rounded-pill fw-semibold mt-2 d-flex align-items-center btn-sm"
-                                            onClick={toggle}
+                                        {/* Overlay Content */}
+                                        <div
+                                            className="position-absolute bottom-0 start-0 w-100 text-white p-3"
+                                            style={{
+                                                background:
+                                                    "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%)",
+                                            }}
                                         >
-                                            View Phone No. <FaPhoneAlt className="ms-2" />
-                                        </Button>
+                                            <p className="mb-1 fw-semibold text-white">{p.price}</p>
+                                            <h6 className="mb-1">{p.name}</h6>
+                                            <small className="text-light d-block">
+                                                {p.location} <br /> {p.bhk}
+                                            </small>
+                                            <Button
+                                                color="danger"
+                                                className="rounded-pill fw-semibold mt-2 d-flex align-items-center btn-sm"
+                                                onClick={toggle}
+                                            >
+                                                View Phone No. <FaPhoneAlt className="ms-2" />
+                                            </Button>
+                                        </div>
                                     </div>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </CardBody>
-            </Card>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </CardBody>
+                </Card>
+            </section>
+
 
             {/* Modal */}
             <EnquiryModal modal={modal} toggle={toggle} />

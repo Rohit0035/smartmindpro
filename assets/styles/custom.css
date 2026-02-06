@@ -104,6 +104,17 @@
     margin-top: 5px;
 }
 
+/* premuimhome page css  start */
+
+.prehomehero{
+  background-image: url(../images/preh-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 70px 0px;
+}
+
+/* premuimhome page css  close */
+
 
 @keyframes bounce {
   0%, 100% {
@@ -111,5 +122,13 @@
   }
   50% {
     transform: translate(-50%, -100%) translateY(-6px);
+  }
+}
+
+
+/* mobile css */
+@media only screen and (max-width: 600px) {
+  .premst-img{
+     height: 250px !important;
   }
 }

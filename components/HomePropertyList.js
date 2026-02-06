@@ -124,7 +124,8 @@ const PopularOwnerProperties = () => {
                                     <Image
                                         src={prop.img}
                                         alt={prop.bhk}
-                                        className="img-fluid rounded-top"
+                                        className="w-100 rounded-0 object-fit-cover"
+                                        style={{ height: '200px' }}
                                     />
                                     {/* Image count badge */}
                                     <div

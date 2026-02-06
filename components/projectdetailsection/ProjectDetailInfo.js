@@ -18,9 +18,9 @@ import {
 
 const ProjectDetailInfo = () => {
   return (
-    <section className="py-0">
+    <section className="pb-5 pt-0" id="overview">
       <Container>
-        <Card className="border shadow-sm rounded-4 p-1 bg-light" id="overview" data-aos="fade-up">
+        <Card className="border shadow-sm rounded-4 p-1 bg-light" data-aos="fade-up">
           <CardBody>
             <Row className="align-items-start">
               {/* Project Title & Location */}

@@ -21,9 +21,11 @@ import SimilarProjects from "../../components/projectdetailsection/SimilarProjec
 import OtherProjects from "../../components/projectdetailsection/OtherProjects";
 import FaqSection from "../../components/projectdetailsection/FaqSection";
 import PopularStories from "../../components/projectdetailsection/PopularStories";
+import PropertySection from "../../components/projectssections/PropertySection";
+import FloorPlanSection from "../../components/projectdetailsection/FloorPlanSection";
+import HorizontalSectionNav from "../../components/projectdetailsection/HorizontalSectionNav";
 const ProjectDetail = () => {
     const [showStickyNav, setShowStickyNav] = useState(false);
-
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 250) setShowStickyNav(true);
@@ -35,36 +37,17 @@ const ProjectDetail = () => {
     return (
         <>
             <BreadcrumbNav />
-
             {/* {showStickyNav && (
-                <div style={{ zIndex: '11111' }} className=" d-none d-sm-block container sticky-top bg-white ">
+                <div style={{ zIndex: '11111' }} className=" d-none d-sm-block container sticky-top bg-white py-2 ">
                     <Row>
                         <Col xs="12" sm="12" md="12" lg="12">
-                            <Nav className=" mb-1 small mt-2 ">
-                                <NavItem>
-                                    <NavLink href="#overview" className="text-dark fw-semibold me-2 px-2">
-                                        Overview
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink href="#moredetails" className="text-dark fw-semibold me-2 px-2">
-                                        More Details
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink href="#aboutlocality" className="text-dark fw-semibold px-2">
-                                        About Locality
-                                    </NavLink>
-                                </NavItem>
-                            </Nav>
+                           
                         </Col>
                     </Row>
                 </div>
             )} */}
-
+             <HorizontalSectionNav/>
             <ImageGrid />
-
-
             <section className="py-4" style={{ minHeight: "100vh" }}>
                 <Container>
                     <Row>
@@ -75,6 +58,8 @@ const ProjectDetail = () => {
                                 <ProjectDetailInfo />
                                 <Amenities />
                                 <ProjectAbout />
+                                <FloorPlanSection/>
+                                <PropertySection/>
                                 <Ratings />
                                 <AdsFullBanner />
                                 <NearbySection />
@@ -88,9 +73,9 @@ const ProjectDetail = () => {
                                 <TopAdvertis />
                                 <AdsFullBanner />
                                 <SimilarProjects />
-                                <OtherProjects/>
-                                <FaqSection/>
-                                <PopularStories/>
+                                <OtherProjects />
+                                <FaqSection />
+                                <PopularStories />
                             </div>
                         </Col>
 
