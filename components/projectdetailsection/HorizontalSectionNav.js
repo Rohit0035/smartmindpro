@@ -35,7 +35,7 @@ const StickyHorizontalNav = () => {
             style={{
                 position: "sticky",   
                 top: "4.5rem",       
-                zIndex: 1050      
+                zIndex: 1000      
             }}
         >
             <Container>

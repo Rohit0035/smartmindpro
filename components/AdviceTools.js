@@ -42,7 +42,7 @@ const AdviceTools = () => {
     }, []);
 
     return (
-        <Container className="my-5 position-relative">
+        <Container className="my-5 position-relative" id="toolsadvice">
             {/* Section Header */}
             <Row className="align-items-center mb-4">
                 <Col>

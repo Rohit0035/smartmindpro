@@ -115,6 +115,17 @@
 
 /* premuimhome page css  close */
 
+/* project in */
+.wd-serproin{
+  width: 768px !important;
+  padding: 15px !important;
+  border-radius: 8px;
+}
+.locstdrop{
+   width: 520px;
+   box-shadow: 0 6px 18px rgba(0,0,0,0.15) ;
+   padding: 12px !important;
+}
 
 @keyframes bounce {
   0%, 100% {
@@ -131,4 +142,15 @@
   .premst-img{
      height: 250px !important;
   }
+  .wd-serproin{
+    width: 100% !important;
+  }
+  .st-wdt{
+   width: 90% !important;
+  }
+  .locstdrop{
+   width: 300px;
+   left: -100px !important;
+   box-shadow: 0 6px 18px rgba(0,0,0,0.15) ;
+   }
 }

@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import proimg from "../assets/images/pro-1.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 const HomeEstateGuide = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -50,7 +51,7 @@ const HomeEstateGuide = () => {
   ];
 
   return (
-    <Container className="my-5 position-relative">
+    <Container className="my-5 position-relative" id="realestateguide">
       {/* Header */}
       <Row className="align-items-center mb-4" data-aos="fade-up">
         <Col>
@@ -92,7 +93,7 @@ const HomeEstateGuide = () => {
                       />
                       <div
                         onClick={() => openVideo(v.url)}
-                        className="position-absolute top-50 start-50 translate-middle bg-danger text-white rounded-circle d-flex align-items-center justify-content-center"
+                        className="position-absolute top-50 start-50 translate-middle bg-st text-white rounded-circle d-flex align-items-center justify-content-center"
                         style={{
                           width: "50px",
                           height: "50px",
@@ -113,12 +114,12 @@ const HomeEstateGuide = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              <Button
-                color="link"
-                className="text-danger fw-bold mt-3 p-0 text-decoration-none"
+              <Link
+                href="/blog"
+                className="text-st fw-bold mt-4 d-block text-decoration-none"
               >
                 See all →
-              </Button>
+              </Link>
             </CardBody>
           </Card>
         </Col>
@@ -135,17 +136,17 @@ const HomeEstateGuide = () => {
                     className="d-flex align-items-center mb-3 text-muted"
                     style={{ fontSize: "15px" }}
                   >
-                    <FaFileAlt className="text-danger me-2" />
+                    <FaFileAlt className="text-st me-2" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <Button
-                color="link"
-                className="text-danger fw-bold mt-2 p-0 text-decoration-none"
+              <Link
+                href="/blog"
+                className="text-st fw-bold mt-4 d-block text-decoration-none"
               >
                 See all →
-              </Button>
+              </Link>
             </CardBody>
           </Card>
         </Col>
@@ -185,7 +186,7 @@ const HomeEstateGuide = () => {
                     <Button
                       color="link"
                       style={{ fontSize: "12px" }}
-                      className="text-danger fw-bold p-0 text-decoration-none"
+                      className="text-st fw-bold p-0 text-decoration-none"
                     >
                       {item.btn}
                     </Button>
@@ -197,15 +198,15 @@ const HomeEstateGuide = () => {
                 className="d-flex justify-content-between align-items-center mt-3"
                 data-aos="fade-up"
               >
+                <Link
+                href="/blog"
+                className="text-st fw-bold mt-4 d-block text-decoration-none"
+              >
+                See all →
+              </Link>
                 <Button
-                  color="link"
-                  className="text-danger fw-bold p-0 text-decoration-none"
-                >
-                  See all →
-                </Button>
-                <Button
-                  color="danger"
-                  className="text-white rounded-pill px-3 py-1 fw-bold text-decoration-none"
+                  color="st"
+                  className=" rounded-pill px-3 py-1 btn btn-danger btn-sm"
                 >
                   Explore Services
                 </Button>

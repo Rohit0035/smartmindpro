@@ -8,7 +8,7 @@ import SmallForm from "./SmallForm";
 const Footer = () => {
   return (
     <>
-      <footer className="bg-light  pt-5 pb-3 mt-5">
+      <footer className="pt-5 pb-3" style={{backgroundColor:'#dbecfd52'}}>
         <div className="container">
           <div className="row gy-4">
             {/* About Section */}

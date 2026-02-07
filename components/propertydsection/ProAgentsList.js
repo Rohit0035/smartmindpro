@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import Link from "next/link";
-import { Button, Card, CardBody, Col, Row } from "reactstrap";
+import { Badge, Button, Card, CardBody, Col, Row } from "reactstrap";
 import { FaArrowLeft, FaArrowRight, } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -93,7 +93,7 @@ const ProAgentsList = () => {
                 <Row className="align-items-center mb-3">
                     <Col>
                         <h4 className="fw-bold">
-                            MB Preferred Agents in Bangalore
+                             Preferred Agents 
                             <span
                                 style={{
                                     display: "block",
@@ -150,9 +150,10 @@ const ProAgentsList = () => {
                                     />
                                     <div>
                                         <span className="badge bg-warning text-dark small mb-1">
-                                            MB Preferred
+                                            SM Preferred
                                         </span>
                                         <h6 className="fw-semibold mb-0 st-txt-o">{agent.name}</h6>
+                                        <Badge color="success" className="small">Verified</Badge>
                                     </div>
                                 </div>
 

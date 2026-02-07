@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Col, Nav, NavItem, NavLink, Button, Container, Row } from "reactstrap";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const PropertyStickyNav = () => {
+const LocalitiesStickyNav = () => {
     const scrollRef = useRef(null);
     const [showNav, setShowNav] = useState(false);
 
@@ -57,9 +57,13 @@ const PropertyStickyNav = () => {
                                 <Nav className="flex-nowrap align-items-center">
                                     {[
                                         ["overview", "Overview"],
-                                        ["moredetail", "More Detail"],
-                                        ["aboutproject", "About Project"],
-                                        ["aboutlocality", "About Locality"],
+                                        ["pricetrend", "Price Trends"],
+                                        ["photovideos", "Photos & Videos"],
+                                        ["toolsadvice", "Tools & Advice"],
+                                        ["realestateguide", "Real Estate Guide"],
+                                        ["projects", "Projects"],
+                                        ["builders", "Builders"],
+                                        ["similarlocalities", "Similar Localities"],
                                     ].map(([id, label]) => (
                                         <NavItem key={id}>
                                             <NavLink
@@ -88,4 +92,4 @@ const PropertyStickyNav = () => {
     );
 };
 
-export default PropertyStickyNav;
+export default LocalitiesStickyNav;

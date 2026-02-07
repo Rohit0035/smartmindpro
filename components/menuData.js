@@ -35,8 +35,8 @@ const menuData = [
       {
         title: "Explore",
         items: [
-          { label: "Localities in Indore", path: "/property" },
-          { label: "Projects in Indore", path: "/projects" },
+          { label: "Localities in Indore", path: "/localities" },
+          { label: "Projects in Indore", path: "/project-in" },
           { label: "Find an Agent", path: "/agents" },
           { label: "Home Interiors in Indore", path: "/" },
 
