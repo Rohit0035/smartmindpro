@@ -25,7 +25,7 @@ const ProjectInGallery = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <section style={{ background: "#f4f4f4", padding: "50px 0" }}>
+        <section style={{ background: "#f4f4f4", padding: "50px 0" }} id="projectgallery">
             <Container>
 
                 {/* ===== Header with Dropdown ===== */}

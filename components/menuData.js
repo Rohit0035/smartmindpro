@@ -13,7 +13,6 @@ const menuData = [
           { label: "Owner Properties", path: "/property" },
           { label: "Budget Homes", path: "/property" },
           { label: "Premium Homes", path: "/premium-home" },
-          { label: "Magic Homes", path: "/property" },
         ],
       },
       {
@@ -35,23 +34,24 @@ const menuData = [
       {
         title: "Explore",
         items: [
-          { label: "Localities in Indore", path: "/localities" },
-          { label: "Projects in Indore", path: "/project-in" },
+          { label: "Localities in Mumbai", path: "/localities" },
+          { label: "Projects in Mumbai", path: "/project-in" },
           { label: "Find an Agent", path: "/agents" },
-          { label: "Home Interiors in Indore", path: "/" },
+          { label: "Home Interiors in Mumbai", path: "/home-interiorproperty" },
+          { label: "Home Interiors ", path: "/interior-home" },
 
         ],
       },
-      {
-        title: "Buying Tools",
-        items: [
-          { label: "Localities in Indore", path: "/property" },
-          { label: "Projects in Indore", path: "/projects" },
-          { label: "Find an Agent", path: "/agents" },
-          { label: "Home Interiors in Indore", path: "/" },
+      // {
+      //   title: "Buying Tools",
+      //   items: [
+      //     { label: "Localities in Indore", path: "/property" },
+      //     { label: "Projects in Indore", path: "/projects" },
+      //     { label: "Find an Agent", path: "/agents" },
+      //     { label: "Home Interiors in Indore", path: "/" },
 
-        ],
-      },
+      //   ],
+      // },
 
     ],
   },

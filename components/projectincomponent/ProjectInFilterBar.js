@@ -30,7 +30,7 @@ const ProjectFilterBar = () => {
   ];
 
   return (
-    <section style={{ background: "#f8f9fa", padding: "60px 0" }}>
+    <section style={{ background: "#f8f9fa", padding: "60px 0" }} id="searchproject">
       <Container>
 
         <Row className="mb-4 text-center">

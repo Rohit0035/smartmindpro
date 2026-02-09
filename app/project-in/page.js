@@ -6,6 +6,14 @@ import ProjectInFilterBar from "../../components/projectincomponent/ProjectInFil
 import ProjectInGallery from "../../components/projectincomponent/ProjectInGallery";
 import ProjectInProjectList from "../../components/projectincomponent/ProjectInProjectList";
 import ProjectInFeaturedDevelopers from "../../components/projectincomponent/ProjectInFeaturedDevelopers";
+import ProjectInBudget from "../../components/projectincomponent/ProjectInBudget";
+import ProjectInTopRated from "../../components/projectincomponent/ProjectInTopRated";
+import ProjectInInvestment from "../../components/projectincomponent/ProjectInInvestment";
+import ProjectInCalculators from "../../components/projectincomponent/ProjectInCalculators";
+import ProjectInDownload from "../../components/projectincomponent/ProjectInDownload";
+import ProjectInTags from "../../components/projectincomponent/ProjectInTags";
+import ProjectInDevTags from "../../components/projectincomponent/ProjectInDevTags";
+import ProjectInLocality from "../../components/projectincomponent/ProjectInLocality";
 
 const ProjectIn = () => {
     return (
@@ -16,6 +24,14 @@ const ProjectIn = () => {
             <ProjectInGallery/>
             <ProjectInProjectList/>
             <ProjectInFeaturedDevelopers/>
+            <ProjectInBudget/>
+            <ProjectInTopRated/>
+            <ProjectInInvestment/>
+            <ProjectInCalculators/>
+            <ProjectInDownload/>
+            <ProjectInTags/>
+            <ProjectInDevTags/>
+            <ProjectInLocality/>
         </>
     );
 };

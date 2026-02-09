@@ -50,7 +50,7 @@ const projects = [
 
 const ProjectInProjectList = () => {
   return (
-    <section className=" bg-light">
+    <section className=" bg-light" id="topprojects">
       <Container>
         <Swiper
           modules={[Navigation]}

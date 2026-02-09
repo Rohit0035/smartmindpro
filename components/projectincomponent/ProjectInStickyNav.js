@@ -59,7 +59,6 @@ const ProjectInStickyNav = () => {
                                         ["searchproject", "Search Projects"],
                                         ["projectgallery", "Project Gallery"],
                                         ["featureddevelopers", "Featured Developers"],
-                                        ["upcominglocalities", "Upcoming Localities"],
                                         ["topprojects", "Top Projects"],
                                         ["pricetrend", "Price Trends"],
                                         ["calculators", "Calculators"]

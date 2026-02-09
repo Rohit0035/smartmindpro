@@ -36,7 +36,7 @@ const HomeLoanCalculator = () => {
     };
 
     return (
-        <section className="py-5">
+        <section className="py-5" >
             <Container>
                 <div className="text-center mb-4">
                     <h3 className="fw-bold">Home Loan Calculator</h3>
